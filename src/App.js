@@ -3,7 +3,7 @@ import "./App.css";
 function App() {
   return (
     <div>
-     <h1>Video library</h1>
+      <p className="font-2xl">Hello</p>
     </div>
   );
 }
