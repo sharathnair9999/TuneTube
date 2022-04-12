@@ -1,3 +1,5 @@
+@import url("/node_modules/mockman-js/dist/style.css");
+
 *, *::after, *::before{
   margin: 0;
   padding: 0;
