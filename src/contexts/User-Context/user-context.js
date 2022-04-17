@@ -7,6 +7,8 @@ const AuthContext = createContext(initialUserState);
 
 const AuthProvider = ({ children }) => {
   const credentials = {
+    firstName : "Adarsh",
+    lastName : "Balika",
     email: "adarshbalika@gmail.com",
     password: "adarshbalika",
   };
@@ -22,8 +24,34 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  const signUpUser = async (details) => {
+    // if (details.password !== details.confirmPassword) {
+    //   showAlert("error", "Password doesn't match", 1500);
+    //   return;
+    // }
+    // if (!accept) {
+    //   showAlert("error", "Please Accept the Terms & Conditions.", 1500);
+    //   return;
+    // }
+
+    try {
+      const { data } = await callAPI("POST", "/api/auth/signup", details);
+      console.log(data);
+      const { createdUser } = data;
+      const { firstName } = createdUser;
+      // showAlert(
+      //   "success",
+      //   `Welcome to Your Notes Family,  ${capitalize(firstName)}`,
+      //   3000
+      // );
+    } catch (error) {
+      console.log(error);
+      // showAlert("error", `User Profile already exists!`, 3000);
+    }
+  };
+
   useEffect(() => {
-    loginUser(credentials);
+    signUpUser(credentials);
   }, []);
 
   const value = { userState, userDispatch };
