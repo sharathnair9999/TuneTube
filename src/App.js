@@ -6,12 +6,17 @@ import {
   History,
   Landing,
   LikedVideos,
+  Login,
   Playlist,
+  Signup,
   SingleVideoPage,
   VideoListing,
   WatchLater,
 } from "./pages";
-
+import {
+  RedirectLoggedInUser,
+  RequireAuth,
+} from "./contexts/User-Context/user-context";
 
 function App() {
   return (
@@ -21,12 +26,35 @@ function App() {
         <Route index element={<VideoListing />} />
         <Route path=":videoId" element={<SingleVideoPage />} />
       </Route>
-      <Route path="liked" element={<LikedVideos />} />
+      <Route
+        path="login"
+        element={
+          <RedirectLoggedInUser>
+            <Login />
+          </RedirectLoggedInUser>
+        }
+      />
+      <Route
+        path="signup"
+        element={
+          <RedirectLoggedInUser>
+            <Signup />
+          </RedirectLoggedInUser>
+        }
+      />
+      <Route
+        path="liked"
+        element={
+          <RequireAuth>
+            <LikedVideos />
+          </RequireAuth>
+        }
+      />
       <Route path="watch-later" element={<WatchLater />} />
       <Route path="history" element={<History />} />
       <Route path="playlists" element={<Playlist />} />
       <Route path="mockapi" element={<Mockman />} />
-      <Route path="*" element={<ErrorPage  />} />
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 }

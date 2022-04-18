@@ -6,6 +6,8 @@ import WatchLater from "./WatchLater/WatchLater";
 import LikedVideos from "./LikedVideos/LikedVideos";
 import ErrorPage from "./ErrorPage/ErrorPage";
 import SingleVideoPage from "./SingleVideoPage/SingleVideoPage";
+import Login from "./Login/Login";
+import Signup from "./Signup/Signup";
 
 export {
   History,
@@ -16,4 +18,6 @@ export {
   LikedVideos,
   ErrorPage,
   SingleVideoPage,
+  Login,
+  Signup,
 };
