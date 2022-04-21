@@ -1,0 +1,53 @@
+.footer {
+  margin-top: auto;
+  border-top: 1px solid var(--font-white-500);
+  height: 5rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.socials {
+  margin-top: 5px;
+}
+
+.border {
+  border-left: 1px solid var(--font-white-500);
+  height: 100%;
+}
+
+.socials span {
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+  padding: 5px 0;
+}
+
+.socials ul {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.socials ul a {
+  color: var(--font-white-300);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.socials ul li a:hover {
+  color: var(--black);
+  transition: color 0.2s ease-in-out;
+}
+
+.note {
+  padding: 5px;
+}
+
+
+@media screen and (max-width:768px) {
+  .note{
+    font-size: 0.8rem;
+    padding: 5px;
+  }
+}
