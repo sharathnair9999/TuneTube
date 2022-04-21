@@ -1,7 +1,67 @@
 @import url("/node_modules/mockman-js/dist/style.css");
 
-*, *::after, *::before{
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+:root {
+  --bg-primary-100: #414141;
+  --bg-primary-200: #252525;
+  --font-white-100: #f8f9fa;
+  --font-white-300: #dee2e6;
+  --font-white-500: #adb5bd;
+  --black-transparent-1: #000000d4;
+  --black-transparent-2: #00000081;
+  --red-1: #ff0000;
+  --red-2: #af0404;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  color: var(--font-white-100);
+  background-color: var(--bg-primary-100);
+}
+
+.main-container {
+  flex-grow: 1;
+  margin-top: 2rem;
+  padding: 1.5rem 1rem 1rem 1rem;
+  min-height: calc(100vh - 6rem);
+  width: 100%;
+  overflow-y: auto;
+}
+
+a {
+  text-decoration: none;
+  color: var(--font-white-100);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--font-white-500);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--font-white-100);
+}
+@media screen and (max-width: 768px) {
+  .App {
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+
+  .main-container {
+    height: calc(100vh - 5rem);
+  }
 }

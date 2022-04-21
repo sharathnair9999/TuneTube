@@ -1,4 +1,5 @@
 import axios from "axios";
+import { constants } from "./constants";
 
 export const callAPI = (method, url, body, token=null) => {
   return token
@@ -14,3 +15,6 @@ export const callAPI = (method, url, body, token=null) => {
         data: body || null,
       });
 };
+
+
+export {constants}
