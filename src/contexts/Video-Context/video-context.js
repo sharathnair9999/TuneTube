@@ -1,6 +1,7 @@
 import { createContext, useReducer, useContext, useEffect } from "react";
 import { callAPI } from "../../app-utils";
 import { initialVideosState, videosReducer } from "./video-utils";
+import { toast } from "react-toastify";
 
 const VideosContext = createContext(initialVideosState);
 
@@ -15,17 +16,17 @@ const VideosProvider = ({ children }) => {
       const {
         data: { categories },
       } = await callAPI("GET", "/api/categories");
-      console.log(categories);
+      videosDispatch({ type: "GET_ALL_CATEGORIES", payload: categories });
     } catch (error) {
-      console.error(error);
+      toast.error("Could not fetch categories");
     }
   };
-
   useEffect(() => {
-    getAllCategories();
+    videosState.allCategories.length === 0 && getAllCategories();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const value = { videosState, videosDispatch };
+  const value = { videosState, videosDispatch, getAllCategories };
 
   return (
     <VideosContext.Provider value={value}>{children}</VideosContext.Provider>

@@ -16,3 +16,13 @@
 .title-text span {
   margin-inline: 5px;
 }
+
+.categories {
+  margin-bottom: 10px;
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  max-width: 1350px;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+}
