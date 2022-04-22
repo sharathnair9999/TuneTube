@@ -1,0 +1,27 @@
+.video-listing-container{
+  min-height: 100%;
+}
+
+.categories-chip-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.date-sort {
+  outline: none;
+  font-size: 1.2rem;
+  border: 1px solid var(--font-white-500);
+  background: transparent;
+  color: var(--font-white-100);
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.date-sort > option {
+  background-color: var(--bg-primary-100);
+  border: none;
+  outline: none;
+  padding: 100px;
+}
