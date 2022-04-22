@@ -29,16 +29,14 @@
   height: 100vh;
   color: var(--font-white-100);
   background-color: var(--bg-primary-100);
-  transition:  all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .main-container {
   flex-grow: 1;
-  margin-top: 2.5rem;
-  padding: 1rem 1rem 0 1rem;
-  min-height: calc(100vh - 6rem);
-  width: 100%;
   overflow-y: auto;
+  margin-top: 3rem;
+  padding: 20px 10px;
 }
 
 a {
@@ -72,8 +70,8 @@ ul li {
 }
 @media screen and (max-width: 768px) {
   ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 2px;
+    height: 2px;
   }
   .App {
     flex-direction: column-reverse;
@@ -82,6 +80,7 @@ ul li {
 
   .main-container {
     height: calc(100vh - 5rem);
+    padding: 10px;
   }
 }
 
