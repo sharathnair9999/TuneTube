@@ -11,6 +11,17 @@ const VideosProvider = ({ children }) => {
     initialVideosState
   );
 
+  const getAllVideos = async () => {
+    try {
+      const {
+        data: { videos },
+      } = await callAPI("GET", "/api/videos");
+      videosDispatch({ type: "GET_ALL_VIDEOS", payload: videos });
+    } catch (error) {
+      toast.error("Could not fetch the videos");
+    }
+  };
+
   const getAllCategories = async () => {
     try {
       const {
@@ -23,10 +34,10 @@ const VideosProvider = ({ children }) => {
   };
   useEffect(() => {
     videosState.allCategories.length === 0 && getAllCategories();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const value = { videosState, videosDispatch, getAllCategories };
+  const value = { videosState, videosDispatch, getAllCategories, getAllVideos };
 
   return (
     <VideosContext.Provider value={value}>{children}</VideosContext.Provider>

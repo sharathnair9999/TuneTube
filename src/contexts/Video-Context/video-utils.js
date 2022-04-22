@@ -12,6 +12,8 @@ export const initialVideosState = {
 export const videosReducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
+    case "GET_ALL_VIDEOS":
+      return { ...state, allVideos: payload };
     case "GET_ALL_CATEGORIES":
       return { ...state, allCategories: payload };
     case "FILTER_BY_CATEGORY":

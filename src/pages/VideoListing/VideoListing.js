@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { CategoryChip } from "../../components";
 import { useVideos } from "../../contexts";
 import "./VideoListing.css";
@@ -7,15 +7,20 @@ const VideoListing = () => {
   const {
     videosState: {
       allCategories,
+      allVideos,
       filters: { dateSort, filterByCategory },
     },
     videosDispatch,
+    getAllVideos,
   } = useVideos();
 
   const setSortBy = (e) => {
     videosDispatch({ type: e.target.value });
   };
-  
+
+  useEffect(() => {
+    allVideos.length === 0 && getAllVideos();
+  }, []);
 
   return (
     <div className="video-listing-container">
