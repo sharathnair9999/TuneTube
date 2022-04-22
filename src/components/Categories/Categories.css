@@ -1,0 +1,18 @@
+.categories-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title-text {
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  padding-left: 1rem;
+  border-top: 2px solid var(--font-white-100);
+}
+
+.title-text span {
+  margin-inline: 5px;
+}
