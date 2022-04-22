@@ -8,7 +8,7 @@ const VideoListing = () => {
     videosState: {
       allCategories,
       allVideos,
-      filters: { dateSort, filterByCategory },
+      filters: { dateSort },
     },
     videosDispatch,
     getAllVideos,
