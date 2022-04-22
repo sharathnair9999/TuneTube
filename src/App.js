@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Mockman from "mockman-js";
 import {
   ErrorPage,
@@ -19,11 +19,19 @@ import {
   RequireAuth,
 } from "./contexts/User-Context/user-context";
 import { Footer, NavBar, SplashScreen } from "./components";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const LazyLanding = React.lazy(() => import("./pages/Landing/Landing"));
+
 function App() {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
   return (
     <div className="App">
-      <NavBar />
+      <ToastContainer autoClose={2000} />
+        <NavBar />
       <div className="main-container">
         <Routes>
           <Route
