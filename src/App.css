@@ -29,12 +29,13 @@
   height: 100vh;
   color: var(--font-white-100);
   background-color: var(--bg-primary-100);
+  transition:  all 0.2s ease-in-out;
 }
 
 .main-container {
   flex-grow: 1;
-  margin-top: 3.5rem;
-  padding: 1rem 1rem 0rem 1rem;
+  margin-top: 2.5rem;
+  padding: 1rem 1rem 0 1rem;
   min-height: calc(100vh - 6rem);
   width: 100%;
   overflow-y: auto;
@@ -58,6 +59,7 @@ ul li {
 
 ::-webkit-scrollbar {
   width: 10px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -69,6 +71,10 @@ ul li {
   background-color: var(--font-white-100);
 }
 @media screen and (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
   .App {
     flex-direction: column-reverse;
     gap: 0;
