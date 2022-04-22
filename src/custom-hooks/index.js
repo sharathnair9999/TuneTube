@@ -1,3 +1,4 @@
 import useClickOutside from "./useClickOutside";
+import useWindowDimensions from "./useWindowDimensions"
 
-export {useClickOutside}
+export {useClickOutside, useWindowDimensions}

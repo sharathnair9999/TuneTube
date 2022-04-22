@@ -29,7 +29,7 @@ const NavBar = () => {
         </button>
         <span className="border"></span>
       </section>
-      <Link className="logo-container flex-and-center gap-xsm" to={"/"}>
+      <Link className="logo-container flex justify-fs items-center gap-xsm" to={"/"}>
         <img
           src={constants.imgUrls.logo}
           alt="unbox tube"

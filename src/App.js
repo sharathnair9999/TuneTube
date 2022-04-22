@@ -1,10 +1,10 @@
+import React from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Mockman from "mockman-js";
 import {
   ErrorPage,
   History,
-  Landing,
   LikedVideos,
   Login,
   Playlist,
@@ -13,19 +13,27 @@ import {
   VideoListing,
   WatchLater,
 } from "./pages";
+
 import {
   RedirectLoggedInUser,
   RequireAuth,
 } from "./contexts/User-Context/user-context";
-import { Footer, NavBar } from "./components";
-
+import { Footer, NavBar, SplashScreen } from "./components";
+const LazyLanding = React.lazy(() => import("./pages/Landing/Landing"));
 function App() {
   return (
     <div className="App">
       <NavBar />
       <div className="main-container">
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route
+            path="/"
+            element={
+              <React.Suspense fallback={<SplashScreen />}>
+                <LazyLanding />
+              </React.Suspense>
+            }
+          />
           <Route path="explore">
             <Route index element={<VideoListing />} />
             <Route path=":videoId" element={<SingleVideoPage />} />
@@ -81,7 +89,7 @@ function App() {
           <Route path="mockapi" element={<Mockman />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
-      <Footer />
+        <Footer />
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-import { v4 as uuid } from "uuid";
 
 /**
  * Category Database can be added here.
@@ -7,21 +6,31 @@ import { v4 as uuid } from "uuid";
 
 export const categories = [
   {
-    _id: uuid(),
-    categoryName: "Computer Programming",
+    _id: "1111",
+    categoryName: "Unboxing",
+    thumbnail : "https://res.cloudinary.com/sharath-media-library/image/upload/v1650608301/unbox%20tube/unbox_thumbail_qglydg.jpg",
     description:
-      "Computer programming is the process of designing and building an executable computer program to accomplish a specific computing",
+      "Look at your favourite creators unboxing your favourite gadgets",
   },
   {
-    _id: uuid(),
-    categoryName: "Frontend Development",
+    _id: "1112",
+    categoryName: "Review",
+    thumbnail : "https://res.cloudinary.com/sharath-media-library/image/upload/v1650608358/unbox%20tube/review_thumbnail_h3umk0.jpg",
     description:
-      "Front-end web development, also known as client-side development is the practice of producing HTML, CSS and JavaScript for a website or Web Application",
+      "Go watch the gadgets you love getting reviewed by top reviewers",
   },
   {
-    _id: uuid(),
-    categoryName: "Backend Development",
+    _id: "1113",
+    categoryName: "Testing",
+    thumbnail : "https://res.cloudinary.com/sharath-media-library/image/upload/v1650608410/unbox%20tube/test_thumbnail_iul2zd.jpg",
     description:
-      "Backend Development is also known as server-side development. It is everything that the users don't see and contains behind-the-scenes activities that occur when performing any action on a website.",
+      "Gather courage to watch gadgets getting broken down",
+  },
+  {
+    _id: "1114",
+    categoryName: "Awards",
+    thumbnail : "https://res.cloudinary.com/sharath-media-library/image/upload/v1650608550/unbox%20tube/awards_thumbnail_hhysjw.jpg",
+    description:
+      "Best gadgets never goes unnoticed, they deserve awards too.",
   },
 ];
