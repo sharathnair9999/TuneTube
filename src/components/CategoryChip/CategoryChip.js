@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useVideos } from "../../contexts";
 import "./CategoryChip.css";
 
@@ -16,7 +16,7 @@ const CategoryChip = ({ category }) => {
   return (
     <button
       onClick={() => selectCategory(category)}
-      className={`chip ${filterByCategory===category && 'active'}`}
+      className={`chip ${filterByCategory === category && "active"}`}
     >
       {category}
     </button>
