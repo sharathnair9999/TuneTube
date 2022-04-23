@@ -1,12 +1,12 @@
 import { createContext, useContext, useReducer } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import { callAPI } from "../../app-utils";
+import { toast } from "react-toastify";
+import { callAPI, capitalize } from "../../app-utils";
 import { initialUserState, userReducer } from "./user-utils";
 
 const AuthContext = createContext(initialUserState);
 
 const AuthProvider = ({ children }) => {
-
   const [userState, userDispatch] = useReducer(userReducer, initialUserState);
 
   const loginUser = async (credentials) => {
@@ -20,10 +20,18 @@ const AuthProvider = ({ children }) => {
 
   const signUpUser = async (details) => {
     try {
-      const { data } = await callAPI("POST", "/api/auth/signup", { details });
-      console.log(data);
+      const {
+        data: { createdUser, encodedToken },
+      } = await callAPI("POST", "/api/auth/signup", details);
+
+      toast.success(
+        `Welcome to UnboxTube ${capitalize(createdUser.firstName)} ${capitalize(
+          createdUser.lastName
+        )}`
+      );
+      console.log(encodedToken);
     } catch (error) {
-      console.log(error);
+      toast.error("This user already exists");
     }
   };
 
