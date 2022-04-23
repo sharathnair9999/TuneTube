@@ -54,17 +54,15 @@ const VideoListing = () => {
           ))}
         </ul>
       </div>
+
       <div className="video-listing">
-        {allVideosLoading ? (
-          [...Array(8)].map((_, _id) => <SkeletalLoading />)
-        ) : displayVideos.length > 0 ? (
-          displayVideos.map((video) => (
-            <VideoCard key={video._id} video={video} />
-          ))
-        ) : (
-          <EmptyData msg={""} imgUrl={""} />
-        )}
+        {allVideosLoading
+          ? [...Array(8)].map((_, _id) => <SkeletalLoading />)
+          : displayVideos?.map((video) => (
+              <VideoCard key={video._id} video={video} />
+            ))}
       </div>
+        {displayVideos.length === 0 && <EmptyData msg={"No Videos Here"} />}
     </div>
   );
 };
