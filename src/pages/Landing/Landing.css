@@ -1,5 +1,4 @@
 .landing-container {
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,9 +7,8 @@
 }
 
 .landing-container img {
-  background-size: contain;
-  background-position: left;
-
+  background-size: cover;
+  max-width: 1000px;
 }
 
 .landing-content {
@@ -23,7 +21,8 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  left: 5rem;
+  left: 3rem;
+  bottom: 2rem;
 }
 
 .landing-text {
@@ -40,17 +39,18 @@
 }
 
 @media screen and (max-width: 768px) {
-
-
   .landing-content {
     left: 0;
+    bottom: 1rem;
     max-width: 300px;
   }
 
   .landing-text {
     font-size: 12px;
+    line-height: 20px;
   }
-  .landing-btns{
+  .landing-btns {
     margin-top: 10px;
+    gap: 8px;
   }
 }
