@@ -10,6 +10,7 @@ import CategoryChip from "./CategoryChip/CategoryChip";
 import SkeletalLoading from "./SkeletalLoading/SkeletalLoading";
 import EmptyData from "./EmptyData/EmptyData";
 import Password from "./Password/Password";
+import UserAvatar from "./UserAvatar/UserAvatar";
 
 export {
   VideoCard,
@@ -23,5 +24,6 @@ export {
   CategoryChip,
   SkeletalLoading,
   EmptyData,
-  Password
+  Password,
+  UserAvatar,
 };
