@@ -52,14 +52,15 @@ const NavBar = () => {
           <span className="word word-1">UnboxTube</span>
         </span>
       </Link>
-      {pathname !== "/login" && pathname !== "/signup" && !isLoggedIn ? (
+      {pathname !== "/login" && pathname !== "/signup" && !isLoggedIn && (
         <button
           className="login-btn btn-primary btn"
           onClick={() => navigate("/login")}
         >
           Login
         </button>
-      ) : (
+      )}
+      {isLoggedIn && (
         <UserAvatar
           logoutUser={logoutUser}
           firstName={firstName}
@@ -67,6 +68,7 @@ const NavBar = () => {
           isLoggedIn={isLoggedIn}
         />
       )}
+
       <aside
         className={`${
           isComponentVisible ? "show-side-nav" : "hide-side-nav"

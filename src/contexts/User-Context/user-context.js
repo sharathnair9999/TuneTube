@@ -56,6 +56,7 @@ const AuthProvider = ({ children }) => {
   const logoutUser = () => {
     localStorage.removeItem("userToken");
     userDispatch({ type: "LOGOUT_USER" });
+    toast.success("Logged Out Successfully")
   };
 
   const value = {
