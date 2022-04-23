@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./App.css";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Mockman from "mockman-js";
@@ -25,14 +25,18 @@ const LazyLanding = React.lazy(() => import("./pages/Landing/Landing"));
 
 function App() {
   const location = useLocation();
+  const mainContainerRef = useRef();
+  const scrollToTop = () => {
+    mainContainerRef.current.scroll(0, 0);
+  };
   useEffect(() => {
-    window.scrollTo(0, 0);
+    scrollToTop();
   }, [location.pathname]);
   return (
     <div className="App">
       <ToastContainer autoClose={2000} />
-        <NavBar />
-      <div className="main-container">
+      <NavBar />
+      <div className="main-container" ref={mainContainerRef}>
         <Routes>
           <Route
             path="/"
