@@ -104,5 +104,6 @@ ul li {
 }
 
 .btn-secondary:hover {
-  background-color: var(--font-white-500);
+  background-color: var(--font-white-300);
+  color: var(--black);
 }

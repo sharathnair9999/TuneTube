@@ -25,6 +25,11 @@
   .listing-skeleton {
     width: 18rem;
   }
+  .listing-skeleton .text-section .text {
+    height: 10px;
+    width: 12rem;
+  }
+
 }
 
 

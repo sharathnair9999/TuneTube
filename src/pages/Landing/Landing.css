@@ -8,8 +8,9 @@
 }
 
 .landing-container img {
-  background-size: cover;
-  background-attachment: fixed;
+  background-size: contain;
+  background-position: left;
+
 }
 
 .landing-content {
@@ -39,15 +40,17 @@
 }
 
 @media screen and (max-width: 768px) {
-  .landing-container img {
-    height: 85vh;
-  }
+
+
   .landing-content {
-    left: -0.5rem;
+    left: 0;
     max-width: 300px;
   }
 
   .landing-text {
-    font-size: 16px;
+    font-size: 12px;
+  }
+  .landing-btns{
+    margin-top: 10px;
   }
 }
