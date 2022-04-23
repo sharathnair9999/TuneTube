@@ -10,9 +10,6 @@ const VideoCard = ({ video }) => {
       <ReactTooltip
         place="bottom"
         effect="solid"
-        afterShow={() => {
-          setTimeout(ReactTooltip.hide, 5000);
-        }}
       />
       <img
         className="thumbnail"
