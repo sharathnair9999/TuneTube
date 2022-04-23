@@ -1,15 +1,16 @@
 .signup-container {
-  height: 100vh;
+  height: 90vh;
   justify-content: space-around;
-
+  align-items: center;
+  gap: 2rem;
 }
 .signup-container .image-container {
-  max-width: 500px;
+  max-width: 400px;
   flex-shrink: 1;
 }
-.signup-container .image-container img{
-width: 100%;
-height: auto;
+.signup-container .image-container img {
+  width: 100%;
+  height: auto;
 }
 .signup-container .form-controls {
   flex-grow: 1;
@@ -53,11 +54,11 @@ height: auto;
   color: var(--font-white-100);
 }
 
-
-@media screen and (max-width:768px) {
-  .signup-container{
+@media screen and (max-width: 768px) {
+  .signup-container {
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
     gap: 5px;
     height: 90vh;
   }
@@ -68,12 +69,12 @@ height: auto;
     display: flex;
     justify-content: center;
   }
-  .signup-container .image-container img{
+  .signup-container .image-container img {
     width: 100%;
     max-width: 4rem;
     height: auto;
-    }
-    .signup-container .form-controls{
-      flex-grow: 0;
-    }
+  }
+  .signup-container .form-controls {
+    flex-grow: 0;
+  }
 }

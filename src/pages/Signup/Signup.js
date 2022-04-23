@@ -65,6 +65,7 @@ const Signup = () => {
             onChange={handleChange}
             placeholder="John"
             required
+            autoFocus
           />
         </div>
         <div className="required-text">

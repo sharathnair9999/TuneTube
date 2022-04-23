@@ -9,10 +9,28 @@ const AuthContext = createContext(initialUserState);
 const AuthProvider = ({ children }) => {
   const [userState, userDispatch] = useReducer(userReducer, initialUserState);
 
+  const testUser = {
+    email: "adarshbalika@gmail.com",
+    password: "adarshBalika123",
+  };
+
   const loginUser = async (credentials) => {
     try {
-      const { data } = await callAPI("POST", "/api/auth/login", credentials);
-      console.log(data);
+      const {
+        data: {
+          encodedToken,
+          foundUser: { firstName, lastName },
+        },
+      } = await toast.promise(callAPI("POST", "/api/auth/login", credentials), {
+        pending: "Logging You In",
+        error: "Could not login",
+        success: `Logged In Successfully`,
+      });
+      localStorage.setItem(
+        "userToken",
+        JSON.stringify({ encodedToken, firstName, lastName })
+      );
+      userDispatch({ type: "LOGIN_USER", payload: { firstName, lastName } });
     } catch (error) {
       console.log(error);
     }
@@ -40,7 +58,14 @@ const AuthProvider = ({ children }) => {
     userDispatch({ type: "LOGOUT_USER" });
   };
 
-  const value = { userState, userDispatch, loginUser, signUpUser, logoutUser };
+  const value = {
+    userState,
+    userDispatch,
+    loginUser,
+    signUpUser,
+    logoutUser,
+    testUser,
+  };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
