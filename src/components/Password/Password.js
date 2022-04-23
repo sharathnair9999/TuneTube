@@ -12,7 +12,6 @@ const Password = ({ handleChange, fieldValue, fieldName, ...other }) => {
         type={`${showPassword ? "text" : "password"}`}
         required
         className="input-box"
-        id="password"
         value={fieldValue}
         name={fieldName}
         onChange={handleChange}
