@@ -10,7 +10,6 @@ const CategoryChip = ({ category }) => {
   } = videosState;
 
   const selectCategory = (cat) => {
-    console.log("category", cat);
     videosDispatch({ type: "FILTER_BY_CATEGORY", payload: cat });
   };
 
