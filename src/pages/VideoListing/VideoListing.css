@@ -1,3 +1,6 @@
+.video-listing-container {
+  min-height: 100vh;
+}
 
 .categories-chip-container {
   display: flex;
@@ -9,7 +12,7 @@
 
 .date-sort {
   outline: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border: 1px solid var(--font-white-500);
   background: transparent;
   color: var(--font-white-100);
@@ -23,13 +26,33 @@
   outline: none;
 }
 
-@media screen and (max-width:768px) {
-  .date-sort, .categories-chip-container .chip{
-    font-size: 12px;
-  }
+.video-listing {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 16px;
+  place-items: center;
+  padding: 0 0 10px 0;
+}
 
-  .categories-chip-container{
-    gap: 8px;
-  }
+.sort-items{
+  gap: 10px;
+  padding: 10px 16px;
+}
 
+@media screen and (max-width: 768px) {
+  .date-sort,
+   .chip {
+    font-size: 10px;
+  }
+  
+  .categories-chip-container {
+    gap: 5px;
+  }
+  .video-listing {
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  }
+  .sort-items{
+    gap: 5px;
+    padding: 5px 8px;
+  }
 }
