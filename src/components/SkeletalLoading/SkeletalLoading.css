@@ -1,0 +1,39 @@
+.listing-skeleton {
+  width: 20rem;
+}
+
+.skeleton{
+  animation: skeleton-animation 1s ease-in-out infinite alternate;
+}
+
+.listing-skeleton .image {
+  height: 10rem;
+}
+
+.listing-skeleton .avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.listing-skeleton .text-section .text {
+  height: 10px;
+  width: 14rem;
+}
+
+@media screen and (max-width: 768px) {
+  .listing-skeleton {
+    width: 18rem;
+  }
+}
+
+
+@keyframes skeleton-animation {
+  0% {
+    background-color: var(--font-white-500);
+  }
+
+  100%{
+    background-color: #9b9b9b63;
+  }
+}
