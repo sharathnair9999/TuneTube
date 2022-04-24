@@ -57,12 +57,12 @@ const VideoListing = () => {
 
       <div className="video-listing">
         {allVideosLoading
-          ? [...Array(8)].map((_, _id) => <SkeletalLoading />)
+          ? [...Array(8)].map((_, _id) => <SkeletalLoading key={_id} />)
           : displayVideos?.map((video) => (
               <VideoCard key={video._id} video={video} />
             ))}
       </div>
-        {displayVideos.length === 0 && <EmptyData msg={"No Videos Here"} />}
+      {displayVideos.length === 0 && <EmptyData msg={"No Videos Here"} />}
     </div>
   );
 };

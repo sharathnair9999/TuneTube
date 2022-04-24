@@ -2,7 +2,7 @@ import React from "react";
 import { useWindowDimensions } from "../../custom-hooks";
 import { useVideos } from "../../contexts";
 import "./Categories.css";
-import {CategoryCard} from "../../components"
+import { CategoryCard } from "../../components";
 
 const Categories = () => {
   const { width } = useWindowDimensions();
@@ -10,8 +10,6 @@ const Categories = () => {
   const {
     videosState: { allCategories },
   } = useVideos();
-
-
 
   return (
     <div className="categories-container">

@@ -50,9 +50,16 @@
 }
 
 @media screen and (max-width: 768px) {
+  .category-card {
+    max-width: 18rem;
+  }
+  .category-img {
+    max-width: 18rem;
+  }
   .category-description {
     opacity: 1;
     transform: translateY(-10%);
+    font-size: 12px;
   }
   .category-title {
     opacity: 1;

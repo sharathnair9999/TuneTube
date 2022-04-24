@@ -6,11 +6,14 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 14px;
+  font-size: 15px;
 }
 
-.video-card-text{
+.video-card-text {
   max-width: 80%;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.25px;
 }
 
 .video-card .thumbnail {
@@ -32,7 +35,7 @@
   border-radius: 50%;
 }
 
-.creator-name{
+.creator-name {
   font-weight: 300;
   font-size: 12px;
   color: var(--font-white-300);
@@ -42,5 +45,4 @@
   .video-card {
     width: 18rem;
   }
-
 }

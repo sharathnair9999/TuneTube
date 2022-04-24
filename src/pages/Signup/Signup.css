@@ -1,0 +1,80 @@
+.signup-container {
+  height: 90vh;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+}
+.signup-container .image-container {
+  max-width: 400px;
+  flex-shrink: 1;
+}
+.signup-container .image-container img {
+  width: 100%;
+  height: auto;
+}
+.signup-container .form-controls {
+  flex-grow: 1;
+  max-width: 600px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  border: none;
+  box-shadow: -1px 2px 4px 2px #828282;
+}
+
+.signup-container .form-controls > div {
+  width: 100%;
+}
+
+.signup-container .input-box {
+  padding: 10px 20px;
+}
+
+.signup-container .form-controls .required-title {
+  width: 100%;
+  font-size: 1rem;
+}
+
+.signup-container .form-controls label.terms {
+  font-size: 10px;
+}
+
+.signup-container .form-controls .checkbox {
+  justify-content: flex-start;
+}
+
+.signup-container .form-controls .checkbox input {
+  accent-color: var(--bg-primary-200);
+}
+
+.input-box {
+  background: var(--bg-primary-200);
+  color: var(--font-white-100);
+}
+
+@media screen and (max-width: 768px) {
+  .signup-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    height: 90vh;
+  }
+  .signup-container .input-box {
+    padding: 8px 16px;
+  }
+  .signup-container .image-container {
+    display: flex;
+    justify-content: center;
+  }
+  .signup-container .image-container img {
+    width: 100%;
+    max-width: 4rem;
+    height: auto;
+  }
+  .signup-container .form-controls {
+    flex-grow: 0;
+  }
+}
