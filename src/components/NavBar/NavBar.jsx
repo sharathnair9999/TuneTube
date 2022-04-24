@@ -26,6 +26,22 @@ const NavBar = () => {
     logoutUser,
   } = useAuth();
 
+  const navLinks = [
+    { link: "/explore", linkName: "Explore", icon: <MdExplore size={"1.2rem"} /> },
+    { link: "/liked", linkName: "Liked", icon: <AiFillLike size={"1.2rem"} /> },
+    {
+      link: "/playlists",
+      linkName: "Playlists",
+      icon: <ImList size={"1.2rem"} />,
+    },
+    { link: "/history", linkName: "History", icon: <AiOutlineHistory size={"1.2rem"} /> },
+    {
+      link: "/watch-later",
+      linkName: "Watch Later",
+      icon: <MdWatchLater size={"1.2rem"} />,
+    },
+  ];
+
   return (
     <div className={`navbar-container`} ref={ref}>
       <section className={`open-btn-section`}>
@@ -90,71 +106,21 @@ const NavBar = () => {
             className="options"
             onClick={() => setIsComponentVisible(!isComponentVisible)}
           >
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  `nav-link ${
-                    isActive && "active"
-                  } flex justify-fs items-center`
-                }
-                to={"/explore"}
-              >
-                <MdExplore size={"1.2rem"} />
-                <span>Explore</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  `nav-link ${
-                    isActive && "active"
-                  } flex justify-fs items-center`
-                }
-                to={"/liked"}
-              >
-                <AiFillLike size={"1.2rem"} />
-                <span>Liked</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  `nav-link ${
-                    isActive && "active"
-                  } flex justify-fs items-center`
-                }
-                to={"/playlists"}
-              >
-                <ImList size={"1.2rem"} />
-                <span>Playlists</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  `nav-link ${
-                    isActive && "active"
-                  } flex justify-fs items-center`
-                }
-                to={"/history"}
-              >
-                <AiOutlineHistory size={"1.2rem"} />
-                <span>History</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  `nav-link ${
-                    isActive && "active"
-                  } flex justify-fs items-center`
-                }
-                to={"/watch-later"}
-              >
-                <MdWatchLater size={"1.2rem"} />
-                <span>Watch Later</span>
-              </NavLink>
-            </li>
+            {navLinks?.map(({ link, linkName, icon }) => (
+              <li key={link}>
+                <NavLink
+                  className={({ isActive }) =>
+                    `nav-link ${
+                      isActive && "active"
+                    } flex justify-fs items-center`
+                  }
+                  to={link}
+                >
+                  {icon}
+                  <span>{linkName}</span>
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </nav>
       </aside>

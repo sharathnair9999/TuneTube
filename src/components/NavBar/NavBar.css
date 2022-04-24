@@ -118,27 +118,25 @@
   background-color: var(--font-white-100);
 }
 
-
-
-.btn-primary.user-profile:hover{
+.btn-primary.user-profile:hover {
   background-color: var(--black-transparent-2);
 }
 
-.login-btn{
+.login-btn {
   position: absolute;
   top: 5px;
   right: 3rem;
 }
-.btn-primary.login-btn:hover{
+.btn-primary.login-btn:hover {
   background-color: var(--black-transparent-2);
 }
 
 @media screen and (max-width: 768px) {
-  .login-btn{
+  .login-btn {
     top: 1rem;
     right: 1rem;
   }
-  
+
   .open-btn-section,
   .close-btn-section {
     display: none;
@@ -153,15 +151,15 @@
   }
 
   .navbar {
-    position: sticky;
-    bottom: 0;
+    position: fixed;
+    top: calc(100vh - 3.5rem);
     left: 0;
     right: 0;
     height: 2rem;
     width: 100%;
     height: max-content;
     transform: translateX(0);
-    background-color: var(--black-transparent-2);
+    background-color: var(--bg-primary-200);
   }
 
   .navbar nav .options {
