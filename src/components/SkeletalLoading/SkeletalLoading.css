@@ -1,5 +1,5 @@
 .listing-skeleton {
-  width: 20rem;
+  width: 100%;
 }
 
 .skeleton{
@@ -7,7 +7,7 @@
 }
 
 .listing-skeleton .image {
-  height: 10rem;
+  height: 12rem;
 }
 
 .listing-skeleton .avatar {
@@ -15,22 +15,15 @@
   height: 2.5rem;
   border-radius: 50%;
 }
+.listing-skeleton .text-section{
+  flex-grow: 1;
+}
 
 .listing-skeleton .text-section .text {
   height: 10px;
-  width: 14rem;
+  width: 100%;
 }
 
-@media screen and (max-width: 768px) {
-  .listing-skeleton {
-    width: 18rem;
-  }
-  .listing-skeleton .text-section .text {
-    height: 10px;
-    width: 12rem;
-  }
-
-}
 
 
 @keyframes skeleton-animation {

@@ -1,5 +1,5 @@
 .video-card {
-  width: 20rem;
+  width: 100%;
 }
 
 .card-title {
@@ -11,7 +11,7 @@
 
 .video-card-text {
   max-width: 80%;
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   font-weight: 500;
   letter-spacing: 0.25px;
 }
@@ -19,7 +19,7 @@
 .video-card .thumbnail {
   width: 100%;
   height: auto;
-  max-height: 10rem;
+  max-height: 12rem;
 }
 
 .video-card-details {
@@ -43,6 +43,6 @@
 
 @media screen and (max-width: 768px) {
   .video-card {
-    width: 18rem;
+    width: 100%;
   }
 }
