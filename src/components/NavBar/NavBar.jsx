@@ -27,14 +27,22 @@ const NavBar = () => {
   } = useAuth();
 
   const navLinks = [
-    { link: "/explore", linkName: "Explore", icon: <MdExplore size={"1.2rem"} /> },
+    {
+      link: "/explore",
+      linkName: "Explore",
+      icon: <MdExplore size={"1.2rem"} />,
+    },
     { link: "/liked", linkName: "Liked", icon: <AiFillLike size={"1.2rem"} /> },
     {
       link: "/playlists",
       linkName: "Playlists",
       icon: <ImList size={"1.2rem"} />,
     },
-    { link: "/history", linkName: "History", icon: <AiOutlineHistory size={"1.2rem"} /> },
+    {
+      link: "/history",
+      linkName: "History",
+      icon: <AiOutlineHistory size={"1.2rem"} />,
+    },
     {
       link: "/watch-later",
       linkName: "Watch Later",
@@ -102,12 +110,12 @@ const NavBar = () => {
               <AiOutlineCloseCircle />
             </button>
           </section>
-          <ul
-            className="options"
-            onClick={() => setIsComponentVisible(!isComponentVisible)}
-          >
+          <ul className="options">
             {navLinks?.map(({ link, linkName, icon }) => (
-              <li key={link}>
+              <li
+                key={link}
+                onClick={() => setIsComponentVisible(!isComponentVisible)}
+              >
                 <NavLink
                   className={({ isActive }) =>
                     `nav-link ${
