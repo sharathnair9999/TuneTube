@@ -2,6 +2,7 @@ export const initialVideosState = {
   allVideos: [],
   allVideosLoading: false,
   currVideo: {},
+  isVideoLoading:false,
   allCategories: [],
   filters: {
     dateSort: "LATEST",
@@ -13,6 +14,10 @@ export const initialVideosState = {
 export const videosReducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
+    case "LOADING_CURR_VIDEO":
+      return {...state, isVideoLoading : payload}
+    case "GET_VIDEO":
+      return { ...state, currVideo: payload };
     case "GET_ALL_VIDEOS":
       return { ...state, allVideos: payload };
     case "ALL_VIDEOS_LOADING":
