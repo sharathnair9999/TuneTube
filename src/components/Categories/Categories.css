@@ -26,3 +26,9 @@
   place-items: center;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 }
+
+@media screen and (max-width:768px) {
+  .categories{
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  }
+}

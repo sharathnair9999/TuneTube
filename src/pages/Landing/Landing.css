@@ -22,7 +22,7 @@
   align-items: flex-start;
   flex-direction: column;
   left: 3rem;
-  bottom: 2rem;
+  top: 5rem;
 }
 
 .landing-text {
@@ -41,7 +41,7 @@
 @media screen and (max-width: 768px) {
   .landing-content {
     left: 0;
-    bottom: 1rem;
+    top: 3rem;
     max-width: 300px;
   }
 
