@@ -1,21 +1,20 @@
 import "./VideoCard.css";
 import ReactTooltip from "react-tooltip";
 import React from "react";
+import { Link } from "react-router-dom";
+import { useVideos } from "../../contexts";
 
 const VideoCard = ({ video }) => {
-  const { _id, title, description, creator, uploadedOn, category, creatorImg } =
+  const { _id, title, creator, creatorImg } =
     video;
+
+  const { getThumbnail } = useVideos();
   return (
     <div className="video-card">
-      <ReactTooltip
-        place="bottom"
-        effect="solid"
-      />
-      <img
-        className="thumbnail"
-        src={`http://i3.ytimg.com/vi/${_id}/maxresdefault.jpg`}
-        alt={title}
-      />
+      <ReactTooltip place="bottom" effect="solid" />
+      <Link to={`./${_id}`}>
+        <img className="thumbnail" src={getThumbnail(_id)} alt={title} />
+      </Link>
       <div className="video-card-details">
         <img src={creatorImg} alt="creator" className="creator-img" />
         <section className="video-card-text">

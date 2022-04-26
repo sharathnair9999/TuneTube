@@ -5,6 +5,7 @@ import {
   videosReducer,
   sortVideos,
   categorizedVideos,
+  getThumbnail
 } from "./video-utils";
 import { toast } from "react-toastify";
 
@@ -59,10 +60,6 @@ const VideosProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    getVideo("Dqi9QGyRWGk");
-  }, []);
-
   const value = {
     videosState,
     videosDispatch,
@@ -70,7 +67,8 @@ const VideosProvider = ({ children }) => {
     getAllVideos,
     sortVideos,
     categorizedVideos,
-    getVideo
+    getVideo,
+    getThumbnail
   };
 
   return (
