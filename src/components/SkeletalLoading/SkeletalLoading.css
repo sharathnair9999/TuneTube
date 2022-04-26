@@ -2,10 +2,22 @@
   width: 100%;
 }
 
-
-
 .listing-skeleton .image {
   height: 12rem;
+}
+
+.card-skeleton {
+  height: fit-content;
+}
+
+.card-skeleton .image {
+  height: 5rem;
+  width: 100%;
+  max-width: 12rem;
+}
+
+.side-image {
+  height: 5rem;
 }
 
 .listing-skeleton .avatar {
@@ -13,7 +25,7 @@
   height: 2.5rem;
   border-radius: 50%;
 }
-.listing-skeleton .text-section{
+.listing-skeleton .text-section {
   flex-grow: 1;
 }
 
