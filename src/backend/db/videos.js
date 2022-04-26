@@ -158,7 +158,7 @@ export const videos = [
   {
     _id: "4blF4H893H8",
     title: "They'll Never Know What's in the Box...",
-    description: "Eufy SmartDrop aims to solve your package problems - ",
+    description: "Eufy SmartDrop aims to solve your package problems",
     creator: "Unbox Therapy",
     uploadedOn: "Apr 19, 2022",
     category: "Unboxing",

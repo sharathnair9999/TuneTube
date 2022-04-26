@@ -24,14 +24,14 @@ import "react-toastify/dist/ReactToastify.css";
 const LazyLanding = React.lazy(() => import("./pages/Landing/Landing"));
 
 function App() {
-  const location = useLocation();
+  const { pathname } = useLocation();
   const mainContainerRef = useRef();
   const scrollToTop = () => {
     mainContainerRef.current.scroll(0, 0);
   };
   useEffect(() => {
     scrollToTop();
-  }, [location.pathname]);
+  }, [pathname]);
   return (
     <div className="App">
       <ToastContainer autoClose={2000} />
@@ -101,7 +101,7 @@ function App() {
           <Route path="mockapi" element={<Mockman />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
-        <Footer />
+        {(pathname==="/" || pathname ==="/explore") && <Footer />}
       </div>
     </div>
   );
