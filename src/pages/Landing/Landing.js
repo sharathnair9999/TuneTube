@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import "./Landing.css";
 import { Categories } from "../../components";
 import { constants } from "../../app-utils";
+import { useDocumentTitle } from "../../custom-hooks";
 
 const Landing = () => {
+  const { titles } = constants;
+  useDocumentTitle(titles.landing);
   return (
     <div>
       <div className="landing-container">

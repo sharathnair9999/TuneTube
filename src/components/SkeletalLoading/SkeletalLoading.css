@@ -2,9 +2,7 @@
   width: 100%;
 }
 
-.skeleton{
-  animation: skeleton-animation 1s ease-in-out infinite alternate;
-}
+
 
 .listing-skeleton .image {
   height: 12rem;
@@ -22,16 +20,4 @@
 .listing-skeleton .text-section .text {
   height: 10px;
   width: 100%;
-}
-
-
-
-@keyframes skeleton-animation {
-  0% {
-    background-color: var(--font-white-500);
-  }
-
-  100%{
-    background-color: #9b9b9b63;
-  }
 }

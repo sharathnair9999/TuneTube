@@ -72,7 +72,7 @@ const NavBar = () => {
           alt="unbox tube"
           className="responsive-img logo-img"
         />
-        <span className="font-xl logo-text">
+        <span className="logo-text">
           <span className="word word-1">UnboxTube</span>
         </span>
       </Link>
