@@ -5,9 +5,10 @@ import {
   videosReducer,
   sortVideos,
   categorizedVideos,
-  getThumbnail
+  getThumbnail,
 } from "./video-utils";
 import { toast } from "react-toastify";
+import { useSearchParams } from "react-router-dom";
 
 const VideosContext = createContext(initialVideosState);
 
@@ -16,6 +17,7 @@ const VideosProvider = ({ children }) => {
     videosReducer,
     initialVideosState
   );
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const getAllVideos = async () => {
     try {
@@ -68,7 +70,9 @@ const VideosProvider = ({ children }) => {
     sortVideos,
     categorizedVideos,
     getVideo,
-    getThumbnail
+    getThumbnail,
+    searchParams,
+    setSearchParams
   };
 
   return (

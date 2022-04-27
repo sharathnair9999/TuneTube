@@ -11,15 +11,15 @@ makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <VideosProvider>
-      <AuthProvider>
-        <Router>
+    <Router>
+      <VideosProvider>
+        <AuthProvider>
           <React.Suspense fallback={<SplashScreen />}>
             <LazyApp />
           </React.Suspense>
-        </Router>
-      </AuthProvider>
-    </VideosProvider>
+        </AuthProvider>
+      </VideosProvider>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );

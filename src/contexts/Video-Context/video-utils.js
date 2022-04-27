@@ -6,7 +6,6 @@ export const initialVideosState = {
   allCategories: [],
   filters: {
     dateSort: "LATEST",
-    filterByCategory: "All",
     filterByCreator: "",
   },
 };
@@ -24,16 +23,6 @@ export const videosReducer = (state, action) => {
       return { ...state, allVideosLoading: payload };
     case "GET_ALL_CATEGORIES":
       return { ...state, allCategories: payload };
-    case "FILTER_BY_CATEGORY":
-      return {
-        ...state,
-        filters: { ...state.filters, filterByCategory: payload },
-      };
-
-    case "LATEST":
-      return { ...state, filters: { ...state.filters, dateSort: "LATEST" } };
-    case "OLDEST":
-      return { ...state, filters: { ...state.filters, dateSort: "OLDEST" } };
     case "CURRENT_VIDEO":
       return { ...state, currVideo: payload };
     default:

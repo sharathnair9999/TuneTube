@@ -173,6 +173,15 @@
     max-width: 50%;
     width: calc(100% - 15rem);
   }
+
+  
+  .video-text .video-title {
+    padding-top: 10px 0;
+    font-size: 1rem;
+  }
+  .video-text .description {
+    font-size: 14px;
+  }
 }
 
 @media screen and (min-width: 769px) {

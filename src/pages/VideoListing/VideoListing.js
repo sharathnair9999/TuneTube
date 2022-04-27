@@ -14,20 +14,19 @@ const VideoListing = () => {
   const { titles } = constants;
   useDocumentTitle(titles.explore());
   const {
-    videosState: {
-      allCategories,
-      allVideos,
-      allVideosLoading,
-      filters: { dateSort, filterByCategory },
-    },
-    videosDispatch,
+    videosState: { allCategories, allVideos, allVideosLoading },
     getAllVideos,
     sortVideos,
     categorizedVideos,
+    searchParams,
+    setSearchParams,
   } = useVideos();
 
+  const category = searchParams.get("category") || "All";
+  const sort = searchParams.get("sort") || "LATEST";
+  console.log(sort);
   const setSortBy = (e) => {
-    videosDispatch({ type: e.target.value });
+    setSearchParams({ sort: e.target.value, category: category });
   };
 
   useEffect(() => {
@@ -35,8 +34,8 @@ const VideoListing = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const dateSortedVideos = sortVideos(allVideos, dateSort);
-  const displayVideos = categorizedVideos(dateSortedVideos, filterByCategory);
+  const dateSortedVideos = sortVideos(allVideos, sort);
+  const displayVideos = categorizedVideos(dateSortedVideos, category);
 
   return (
     <div className="video-listing-container">
@@ -45,7 +44,7 @@ const VideoListing = () => {
           name="date-sort"
           id="date-sort"
           className="date-sort"
-          value={dateSort}
+          value={sort}
           onChange={setSortBy}
         >
           <option value="LATEST">Latest</option>

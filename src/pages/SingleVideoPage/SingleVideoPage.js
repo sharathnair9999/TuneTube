@@ -31,10 +31,12 @@ const SingleVideoPage = () => {
   useEffect(() => {
     allVideos.length === 0 && getAllVideos();
     getVideo(videoId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoId]);
 
   useEffect(() => {
     setDocuemntTitle(titles.video(currVideo.title));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currVideo]);
 
   const nextVideos = allVideos.filter((video) => video._id !== currVideo._id);
@@ -98,7 +100,10 @@ const SingleVideoPage = () => {
       <div className="next-videos flex-col flex justify-fs items-center gap-sm">
         {allVideos.length !== 0
           ? nextVideos.map(({ _id, title, creator, uploadedOn }) => (
-              <div className="horizontal-video-card flex items-fs justify-fs gap-sm">
+              <div
+                key={_id}
+                className="horizontal-video-card flex items-fs justify-fs gap-sm"
+              >
                 <Link to={`/explore/${_id}`}>
                   <img
                     src={getThumbnail(_id)}
@@ -120,7 +125,9 @@ const SingleVideoPage = () => {
                 </div>
               </div>
             ))
-          : [...Array(8)].map((_, _id) => <SkeletalLoading sideCards />)}
+          : [...Array(8)].map((_, _id) => (
+              <SkeletalLoading key={_id} sideCards />
+            ))}
       </div>
     </div>
   );
