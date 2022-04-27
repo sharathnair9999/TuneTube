@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { constants } from "../../app-utils";
 import {
   CategoryChip,
   EmptyData,
@@ -6,9 +7,12 @@ import {
   VideoCard,
 } from "../../components";
 import { useVideos } from "../../contexts";
+import { useDocumentTitle } from "../../custom-hooks";
 import "./VideoListing.css";
 
 const VideoListing = () => {
+  const { titles } = constants;
+  useDocumentTitle(titles.explore());
   const {
     videosState: {
       allCategories,

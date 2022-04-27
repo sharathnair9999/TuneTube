@@ -69,6 +69,8 @@
 .logo-text {
   margin: 0;
   padding: 0;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
 }
 
 .border {
@@ -101,7 +103,7 @@
   transition: transform 0.2s ease-in-out;
 }
 .hide-side-nav {
-  transform: translateX(-100%);
+  transform: translateX(-110%);
   transition: transform 0.2s ease-in-out;
 }
 
@@ -143,6 +145,7 @@
   }
 
   .logo-container {
+    top: 0;
     left: 0;
     right: 0;
     background-color: var(--bg-primary-100);
@@ -179,5 +182,9 @@
   .nav-link.active {
     background-color: var(--black);
     color: var(--all-white);
+  }
+  .logo-text{
+    font-size: 1.4rem;
+    line-height: 1.4rem;
   }
 }

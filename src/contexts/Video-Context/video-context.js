@@ -5,6 +5,7 @@ import {
   videosReducer,
   sortVideos,
   categorizedVideos,
+  getThumbnail
 } from "./video-utils";
 import { toast } from "react-toastify";
 
@@ -25,7 +26,22 @@ const VideosProvider = ({ children }) => {
       videosDispatch({ type: "ALL_VIDEOS_LOADING", payload: false });
       videosDispatch({ type: "GET_ALL_VIDEOS", payload: videos });
     } catch (error) {
+      videosDispatch({ type: "ALL_VIDEOS_LOADING", payload: false });
       toast.error("Could not fetch the videos");
+    }
+  };
+
+  const getVideo = async (_id) => {
+    try {
+      videosDispatch({ type: "LOADING_CURR_VIDEO", payload: true });
+      const {
+        data: { video },
+      } = await callAPI("GET", `/api/video/${_id}`);
+      videosDispatch({ type: "GET_VIDEO", payload: video });
+      videosDispatch({ type: "LOADING_CURR_VIDEO", payload: false });
+    } catch (error) {
+      videosDispatch({ type: "LOADING_CURR_VIDEO", payload: false });
+      toast.error("Could not fetch the video");
     }
   };
 
@@ -51,6 +67,8 @@ const VideosProvider = ({ children }) => {
     getAllVideos,
     sortVideos,
     categorizedVideos,
+    getVideo,
+    getThumbnail
   };
 
   return (

@@ -1,5 +1,6 @@
 .video-listing-container {
   min-height: 100vh;
+  padding: 10px;
 }
 
 .categories-chip-container {

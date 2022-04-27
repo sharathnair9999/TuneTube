@@ -2,12 +2,22 @@
   width: 100%;
 }
 
-.skeleton{
-  animation: skeleton-animation 1s ease-in-out infinite alternate;
-}
-
 .listing-skeleton .image {
   height: 12rem;
+}
+
+.card-skeleton {
+  height: fit-content;
+}
+
+.card-skeleton .image {
+  height: 5rem;
+  width: 100%;
+  max-width: 12rem;
+}
+
+.side-image {
+  height: 5rem;
 }
 
 .listing-skeleton .avatar {
@@ -15,23 +25,11 @@
   height: 2.5rem;
   border-radius: 50%;
 }
-.listing-skeleton .text-section{
+.listing-skeleton .text-section {
   flex-grow: 1;
 }
 
 .listing-skeleton .text-section .text {
   height: 10px;
   width: 100%;
-}
-
-
-
-@keyframes skeleton-animation {
-  0% {
-    background-color: var(--font-white-500);
-  }
-
-  100%{
-    background-color: #9b9b9b63;
-  }
 }
