@@ -1,15 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./CategoryCard.css";
 
 const CategoryCard = ({ category }) => {
   const { categoryName, description, thumbnail } = category;
+  const navigate = useNavigate();
+  const moveToExplore = (category) => {
+    navigate({
+      pathname: `/explore?category=${category}&sort=OLDEST`,
+    });
+  };
   return (
-    <Link to={"/explore"} className="category-card">
+    <div
+      className="category-card pointer"
+      onClick={() => moveToExplore(categoryName)}
+    >
       <p className="category-title">{categoryName}</p>
       <img src={thumbnail} alt={categoryName} className="category-img" />
       <p className="category-description">{description}</p>
-    </Link>
+    </div>
   );
 };
 

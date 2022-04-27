@@ -3,14 +3,13 @@ import { useVideos } from "../../contexts";
 import "./CategoryChip.css";
 
 const CategoryChip = ({ category }) => {
-  const { videosState, videosDispatch } = useVideos();
+  const { searchParams, setSearchParams } = useVideos();
 
-  const {
-    filters: { filterByCategory },
-  } = videosState;
+  const filterByCategory = searchParams.get("category") || "All";
+  const sort = searchParams.get("sort") || "LATEST";
 
   const selectCategory = (cat) => {
-    videosDispatch({ type: "FILTER_BY_CATEGORY", payload: cat });
+    setSearchParams({ category: cat, sort: sort });
   };
 
   return (
