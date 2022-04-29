@@ -24,8 +24,11 @@ export const userReducer = (state, action) => {
       };
     case "LOGOUT_USER":
       return initialUserState;
-    case "ERROR":
-      return { ...state, alert: payload };
+    case "LIKED_VIDEOS":
+      return {
+        ...state,
+        likedVideos: payload,
+      };
     default:
       return state;
   }

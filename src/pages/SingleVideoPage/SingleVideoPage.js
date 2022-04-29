@@ -113,13 +113,11 @@ const SingleVideoPage = () => {
                 </Link>
                 <div className="card-details flex-col flex justify-fs items-fs">
                   <ReactTooltip place="top" effect="solid" />
-
                   <p className="video-title">
                     <Link to={`/explore/${_id}`} data-tip={title}>
                       {title}
                     </Link>
                   </p>
-
                   <p className="video-creator">{creator}</p>
                   <p className="video-upload-date">{uploadedOn}</p>
                 </div>

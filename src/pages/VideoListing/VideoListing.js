@@ -24,7 +24,6 @@ const VideoListing = () => {
 
   const category = searchParams.get("category") || "All";
   const sort = searchParams.get("sort") || "LATEST";
-  console.log(sort);
   const setSortBy = (e) => {
     setSearchParams({ sort: e.target.value, category: category });
   };
