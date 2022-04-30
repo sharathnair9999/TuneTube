@@ -101,7 +101,7 @@ function App() {
           <Route path="mockapi" element={<Mockman />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
-        {(pathname==="/" || pathname ==="/explore") && <Footer />}
+        {(pathname === "/" || pathname === "/explore") && <Footer />}
       </div>
     </div>
   );

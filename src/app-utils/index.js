@@ -1,14 +1,13 @@
 import axios from "axios";
 import { constants } from "./constants";
-const userToken = JSON.parse(localStorage.getItem("userToken"))?.encodedToken || "";
 
-export const callAPI = (method, url, body, token = false) => {
+export const callAPI = (method, url, body, token = null) => {
   return token
     ? axios({
         method: method,
         url: url,
         data: body || null,
-        headers: { authorization: userToken },
+        headers: { authorization: token },
       })
     : axios({
         method: method,

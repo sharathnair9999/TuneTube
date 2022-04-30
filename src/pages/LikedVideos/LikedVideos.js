@@ -1,10 +1,18 @@
-import React from 'react'
-import "./LikedVideos.css"
+import React, { useEffect } from "react";
+import { useAuth } from "../../contexts";
+import "./LikedVideos.css";
 
 const LikedVideos = () => {
-  return (
-    <div>LikedVideos</div>
-  )
-}
+  const {
+    userState: { likedVideos, allVideos },
+    getAllLikedVideos,
+  } = useAuth();
 
-export default LikedVideos
+  useEffect(() => {
+    getAllLikedVideos();
+  }, []);
+
+  return <div></div>;
+};
+
+export default LikedVideos;

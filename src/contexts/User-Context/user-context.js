@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { callAPI, capitalize } from "../../app-utils";
-import { initialUserState, userReducer } from "./user-utils";
+import { initialUserState, userReducer, userDetails } from "./user-utils";
 
 const AuthContext = createContext(initialUserState);
 
@@ -26,20 +26,23 @@ const AuthProvider = ({ children }) => {
         error: "Could not login",
         success: `Logged In Successfully`,
       });
+      userDispatch({
+        type: "LOGIN_USER",
+        payload: { firstName, lastName },
+      });
       localStorage.setItem(
         "userToken",
         JSON.stringify({ encodedToken, firstName, lastName })
       );
-      userDispatch({ type: "LOGIN_USER", payload: { firstName, lastName } });
     } catch (error) {
-      console.log(error);
+      toast.error("Could not login at this moment!");
     }
   };
 
   const signUpUser = async (details) => {
     try {
       const {
-        data: { createdUser, encodedToken },
+        data: { createdUser },
       } = await callAPI("POST", "/api/auth/signup", details);
 
       toast.success(
@@ -47,7 +50,6 @@ const AuthProvider = ({ children }) => {
           createdUser.lastName
         )}`
       );
-      console.log(encodedToken);
     } catch (error) {
       toast.error("This user already exists");
     }
@@ -56,7 +58,59 @@ const AuthProvider = ({ children }) => {
   const logoutUser = () => {
     localStorage.removeItem("userToken");
     userDispatch({ type: "LOGOUT_USER" });
-    toast.success("Logged Out Successfully")
+    toast.success("Logged Out Successfully");
+    console.log(userDetails);
+  };
+
+  const getAllLikedVideos = async () => {
+    try {
+      const {
+        data: { likes },
+      } = await callAPI(
+        "GET",
+        "/api/user/likes",
+        null,
+        userDetails?.encodedToken
+      );
+      console.log(likes);
+      userDispatch({ type: "LIKED_VIDEOS", payload: likes });
+    } catch (error) {
+      toast.error("Error Retrieving Liked Videos");
+    }
+  };
+
+  const addToLikedVideos = async (video) => {
+    console.log("userdetails", userDetails);
+    try {
+      const {
+        data: { likes },
+      } = await callAPI(
+        "POST",
+        "/api/user/likes",
+        { video },
+        userDetails?.encodedToken
+      );
+      userDispatch({ type: "LIKED_VIDEOS", payload: likes });
+      toast.success("Video Added to Likes");
+    } catch (error) {
+      toast.error("Couldn't like the video");
+    }
+  };
+  const removeFromLikedVideos = async (_id) => {
+    try {
+      const {
+        data: { likes },
+      } = await callAPI(
+        "DELETE",
+        `/api/user/likes/${_id}`,
+        null,
+        userDetails?.encodedToken
+      );
+      userDispatch({ type: "LIKED_VIDEOS", payload: likes });
+      toast.success("Video Removed From Likes");
+    } catch (error) {
+      toast.error("Seems you are not sure disliking!");
+    }
   };
 
   const value = {
@@ -65,6 +119,9 @@ const AuthProvider = ({ children }) => {
     loginUser,
     signUpUser,
     logoutUser,
+    getAllLikedVideos,
+    addToLikedVideos,
+    removeFromLikedVideos,
     testUser,
   };
 
