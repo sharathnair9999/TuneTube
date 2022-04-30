@@ -89,6 +89,12 @@ ul li {
   transition: background-color 0.1s ease-in-out;
 }
 
+.btn-transparent{
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
 .btn:hover {
   transition: background-color 0.1s ease-in-out;
 }
