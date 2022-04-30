@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./SingleVideoPage.css";
 import ReactPlayer from "react-player";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { useVideos, useAuth } from "../../contexts";
+import { Link, useParams } from "react-router-dom";
+import { useVideos } from "../../contexts";
 import { useDocumentTitle } from "../../custom-hooks";
 import { constants } from "../../app-utils";
-import { AiOutlineLike, AiFillLike } from "react-icons/ai";
-import {
-  MdOutlineWatchLater,
-  MdWatchLater,
-  MdPlaylistAdd,
-  MdPlaylistAddCheck,
-} from "react-icons/md";
+
 import { IoIosShareAlt } from "react-icons/io";
 import ReactTooltip from "react-tooltip";
-import { SkeletalLoading } from "../../components";
+import {
+  Like,
+  PlaylistButton,
+  SkeletalLoading,
+  WatchLaterButton,
+} from "../../components";
 
 const SingleVideoPage = () => {
-  const navigate = useNavigate();
   const { videoId } = useParams();
   const { titles } = constants;
   const [expanded, setExpanded] = useState(false);
@@ -27,12 +25,6 @@ const SingleVideoPage = () => {
     getVideo,
     getThumbnail,
   } = useVideos();
-
-  const {
-    addToLikedVideos,
-    removeFromLikedVideos,
-    userState: { likedVideos, isLoggedIn },
-  } = useAuth();
 
   const [, setDocuemntTitle] = useDocumentTitle("");
   useEffect(() => {
@@ -47,15 +39,6 @@ const SingleVideoPage = () => {
   }, [currVideo]);
 
   const nextVideos = allVideos.filter((video) => video._id !== currVideo._id);
-  const isVideoLiked = likedVideos.some((video) => video._id === currVideo._id);
-
-  const handleLike = (video) => {
-    isLoggedIn
-      ? !isVideoLiked
-        ? addToLikedVideos(video)
-        : removeFromLikedVideos(currVideo._id)
-      : navigate("/login");
-  };
 
   return (
     <div className="video-page-container">
@@ -100,23 +83,9 @@ const SingleVideoPage = () => {
               <span>{currVideo.creator}</span>
             </div>
             <div className="video-actions ml-auto">
-              <button onClick={() => handleLike(currVideo)}>
-                {isLoggedIn ? (
-                  !isVideoLiked ? (
-                    <AiOutlineLike />
-                  ) : (
-                    <AiFillLike />
-                  )
-                ) : (
-                  <AiOutlineLike />
-                )}
-              </button>
-              <button>
-                <MdOutlineWatchLater />
-              </button>
-              <button>
-                <MdPlaylistAdd />
-              </button>
+              <Like />
+              <WatchLaterButton />
+              <PlaylistButton />
             </div>
           </div>
         </div>

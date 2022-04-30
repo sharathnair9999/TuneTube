@@ -11,6 +11,9 @@ import SkeletalLoading from "./SkeletalLoading/SkeletalLoading";
 import EmptyData from "./EmptyData/EmptyData";
 import Password from "./Password/Password";
 import UserAvatar from "./UserAvatar/UserAvatar";
+import Like from "./VideoActions/Like";
+import PlaylistButton from "./VideoActions/PlaylistButton";
+import WatchLaterButton from "./VideoActions/WatchLaterButton";
 
 export {
   VideoCard,
@@ -26,4 +29,7 @@ export {
   EmptyData,
   Password,
   UserAvatar,
+  Like,
+  PlaylistButton,
+  WatchLaterButton
 };
