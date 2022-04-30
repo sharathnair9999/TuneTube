@@ -23,15 +23,15 @@ const Like = () => {
       : navigate("/login");
   };
   return (
-    <button onClick={() => handleLike(currVideo)}>
+    <button className="btn-transparent" onClick={() => handleLike(currVideo)}>
       {isLoggedIn ? (
         !isVideoLiked ? (
-          <AiOutlineLike />
+          <AiOutlineLike color="white" size={"1.2rem"} />
         ) : (
-          <AiFillLike />
+          <AiFillLike color="white" size={"1.2rem"} />
         )
       ) : (
-        <AiOutlineLike />
+        <AiOutlineLike color="white" size={"1.2rem"} />
       )}
     </button>
   );

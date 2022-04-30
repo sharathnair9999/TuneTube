@@ -14,6 +14,7 @@ import UserAvatar from "./UserAvatar/UserAvatar";
 import Like from "./VideoActions/Like";
 import PlaylistButton from "./VideoActions/PlaylistButton";
 import WatchLaterButton from "./VideoActions/WatchLaterButton";
+import VideoActionSection from "./VideoActions/VideoActionSection";
 
 export {
   VideoCard,
@@ -31,5 +32,6 @@ export {
   UserAvatar,
   Like,
   PlaylistButton,
-  WatchLaterButton
+  WatchLaterButton,
+  VideoActionSection
 };

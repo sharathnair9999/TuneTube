@@ -1,0 +1,15 @@
+.like-skeleton-container .listing-skeleton .image.skeleton{
+  max-width: 20rem;
+  height: 10rem;
+}
+
+.like-skeleton-container .listing-skeleton .text-section {
+  gap: 1.5rem;
+}
+
+@media screen and (max-width:768px) {
+  .like-skeleton-container .listing-skeleton .image.skeleton{
+    max-width: 12rem;
+    height: 7rem;
+  }
+}

@@ -16,8 +16,8 @@ const PlaylistButton = () => {
     videosState: { currVideo },
   } = useVideos();
   return (
-    <button>
-      <MdPlaylistAdd />
+    <button className="btn-transparent">
+      <MdPlaylistAdd color="white" size={"1.2rem"} />
     </button>
   );
 };
