@@ -5,13 +5,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 4px;
 }
 
 .video-actions-btn:hover,
 .video-action-btns button:hover {
   transition: all 0.2s ease-in-out;
-  background-color: var(--bg-primary-200);
+  background-color: var(--bg-primary-100);
 }
 
 .video-actions-container {
@@ -20,10 +20,11 @@
 
 .video-action-btns {
   position: absolute;
-  top: 100%;
-  right: -10px;
-  padding: 5px 10px;
+  top: 120%;
+  right: 0;
+  padding: 4px 8px;
   border-radius: 10px;
+  background-color: var(--bg-primary-200);
 }
 
 .show-options {
@@ -42,7 +43,7 @@
   .video-action-btns {
     position: absolute;
     top: 2rem;
-    padding: 4px 8px;
+    padding: 2px 4px;
     border-radius: 10px;
   }
 }

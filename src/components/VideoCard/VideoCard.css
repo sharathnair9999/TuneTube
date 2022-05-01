@@ -4,7 +4,7 @@
 }
 
 .video-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.01);
   transition: transform 0.2s ease-in-out;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .video-card-text {
-  max-width: 80%;
+  max-width: 75%;
   font-family: "Rubik", sans-serif;
   font-weight: 500;
   letter-spacing: 0.25px;
@@ -31,9 +31,19 @@
 .video-card-details {
   padding-top: 5px;
   display: flex;
-  gap: 10px;
+  gap: 5px;
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+.video-card-details .video-actions-container{
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.video-card-details .video-actions-container .video-action-btns{
+  top: -200%;
+  right: 5px;
 }
 
 .video-card-details .creator-img {

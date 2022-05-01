@@ -6,12 +6,13 @@ import PlaylistButton from "./PlaylistButton";
 import "./VideoActions.css";
 import WatchLaterButton from "./WatchLaterButton";
 
-const VideoActionSection = ({ id, video }) => {
+const VideoActionSection = ({ video }) => {
   const { ref, isComponentVisible, setIsComponentVisible } =
     useClickOutside(false);
   return (
     <div ref={ref} className="video-actions-container">
-      <button onClick={()=>setIsComponentVisible(!isComponentVisible)}
+      <button
+        onClick={() => setIsComponentVisible(!isComponentVisible)}
         className="btn-transparent video-actions-btn"
       >
         <IoEllipsisVerticalOutline color="white" size={"1rem"} />
@@ -20,10 +21,11 @@ const VideoActionSection = ({ id, video }) => {
         className={`video-action-btns flex-and-center ${
           isComponentVisible ? "show-options" : "hide-options"
         }  gap-1`}
+        onMouseLeave={() => setIsComponentVisible(false)}
       >
         <Like video={video} />
-        <WatchLaterButton id={id} video={video} />
-        <PlaylistButton id={id} video={video} />
+        <WatchLaterButton video={video} />
+        <PlaylistButton video={video} />
       </section>
     </div>
   );

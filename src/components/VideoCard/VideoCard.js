@@ -2,6 +2,7 @@ import "./VideoCard.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useVideos } from "../../contexts";
+import VideoActionSection from "../VideoActions/VideoActionSection";
 
 const VideoCard = ({ video }) => {
   const { _id, title, creator, creatorImg } = video;
@@ -18,6 +19,7 @@ const VideoCard = ({ video }) => {
           <p className="card-title">{title}</p>
           <small className="creator-name">{creator}</small>
         </section>
+        <VideoActionSection video={video} />
       </div>
     </div>
   );
