@@ -132,7 +132,7 @@ const AuthProvider = ({ children }) => {
       } = await callAPI(
         "POST",
         "/api/user/history",
-        { video },
+        { video : video },
         userDetails?.encodedToken
       );
       userDispatch({ type: "HISTORY", payload: history });
