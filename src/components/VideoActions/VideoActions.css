@@ -26,6 +26,16 @@
   border-radius: 10px;
 }
 
+.show-options {
+  transform: translateX(0);
+  transition: transform 0.1s ease-in-out;
+}
+
+.hide-options {
+  transform: translateX(200%);
+  transition: transform 0.1s ease-in-out;
+}
+
 @media screen and (max-width: 768px) {
   .video-action-btns {
     position: absolute;
