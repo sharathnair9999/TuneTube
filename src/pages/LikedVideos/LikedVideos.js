@@ -20,7 +20,10 @@ const LikedVideos = () => {
         likedVideos.length > 0 ? `- ${likedVideos.length}` : ""
       }`}</p>
       {likedVideos.length === 0 ? (
-        <EmptyData msg={"You didn't like any videos from us!"} url={"/explore"} />
+        <EmptyData
+          msg={"You didn't like any videos from us!"}
+          url={"/explore"}
+        />
       ) : (
         <div className="flex justify-center items-center flex-col gap-sm w-100">
           {likedVideos.map((video, sNo) => (

@@ -132,7 +132,7 @@ const AuthProvider = ({ children }) => {
       } = await callAPI(
         "POST",
         "/api/user/history",
-        { video : video },
+        { video: video },
         userDetails?.encodedToken
       );
       userDispatch({ type: "HISTORY", payload: history });
@@ -177,6 +177,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     getUserHistory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userState.isLoggedIn]);
 
   const value = {
