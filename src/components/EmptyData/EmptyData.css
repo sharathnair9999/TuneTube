@@ -1,26 +1,24 @@
 .msg-text {
   font-size: 1rem;
 }
-.responsive-img {
+.empty-data-container .responsive-img {
   width: 30rem;
 }
 
-.link{
+.link {
   background-color: var(--bg-primary-200);
   padding: 5px 10px;
   border-radius: 4px;
-
 }
 
 @media screen and (max-width: 768px) {
   .msg-text {
     font-size: 0.9rem;
   }
-  .responsive-img {
+  .empty-data-container .responsive-img {
     width: 15rem;
   }
-  .link{
+  .link {
     font-size: 12px;
   }
-
 }
