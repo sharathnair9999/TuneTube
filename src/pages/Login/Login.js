@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { constants } from "../../app-utils";
 import { Password } from "../../components";
 import { useAuth } from "../../contexts";
+import { useDocumentTitle } from "../../custom-hooks";
 import "./Login.css";
 
 const Login = () => {
@@ -23,6 +25,9 @@ const Login = () => {
       return { ...details, [e.target.name]: e.target.value };
     });
   };
+
+  const { titles } = constants;
+  useDocumentTitle(titles.login());
   return (
     <div className="signup-container flex items-fs ">
       <div className="image-container">

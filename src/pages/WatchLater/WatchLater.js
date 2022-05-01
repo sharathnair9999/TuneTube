@@ -12,8 +12,8 @@ const WatchLater = () => {
   } = useAuth();
 
   const { titles } = constants;
-  useDocumentTitle(titles.history());
-  
+  useDocumentTitle(titles.watchlater());
+
   return (
     <div className="flex-col flex justify-fs items-fs gap-1 p-sm">
       <p className=" title">{`Watch Later ${

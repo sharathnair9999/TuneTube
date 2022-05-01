@@ -21,6 +21,12 @@ export const constants = {
     watchlater: function () {
       return `Watch Later | ${this.landing}`;
     },
+    login: function () {
+      return `Login | ${this.landing}`;
+    },
+    signup: function () {
+      return `Signup | ${this.landing}`;
+    },
     video: function (title) {
       return `${title} | ${this.landing}`;
     },

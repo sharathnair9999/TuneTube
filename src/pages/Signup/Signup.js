@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { constants } from "../../app-utils";
 import { Password } from "../../components";
 import { useAuth } from "../../contexts";
+import { useDocumentTitle } from "../../custom-hooks";
 import "./Signup.css";
 
 const Signup = () => {
@@ -17,6 +19,9 @@ const Signup = () => {
     agreed: false,
   };
   const [credentials, setCredentials] = useState(initialCredentialState);
+
+  const { titles } = constants;
+  useDocumentTitle(titles.signup());
 
   const submitUser = async (e, details) => {
     e.preventDefault();
