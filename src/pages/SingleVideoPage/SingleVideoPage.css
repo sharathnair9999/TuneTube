@@ -65,6 +65,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
 }
 
 .video-actions button {
@@ -133,6 +134,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .video-actions{
+    gap: 0px;
+  }
   .video-actions button {
     padding: 10px;
     border-radius: 50%;

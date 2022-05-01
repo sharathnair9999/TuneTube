@@ -80,7 +80,6 @@ const AuthProvider = ({ children }) => {
   };
 
   const addToLikedVideos = async (video) => {
-    console.log("userdetails", userDetails);
     try {
       const {
         data: { likes },

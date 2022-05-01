@@ -5,8 +5,6 @@ import { Link, useParams } from "react-router-dom";
 import { useVideos } from "../../contexts";
 import { useDocumentTitle } from "../../custom-hooks";
 import { constants } from "../../app-utils";
-
-import { IoIosShareAlt } from "react-icons/io";
 import ReactTooltip from "react-tooltip";
 import {
   Like,
@@ -83,7 +81,7 @@ const SingleVideoPage = () => {
               <span>{currVideo.creator}</span>
             </div>
             <div className="video-actions ml-auto">
-              <Like />
+              <Like video={currVideo} />
               <WatchLaterButton />
               <PlaylistButton />
             </div>
