@@ -59,7 +59,6 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("userToken");
     userDispatch({ type: "LOGOUT_USER" });
     toast.success("Logged Out Successfully");
-    console.log(userDetails);
   };
 
   const getAllLikedVideos = async () => {
@@ -72,7 +71,6 @@ const AuthProvider = ({ children }) => {
         null,
         userDetails?.encodedToken
       );
-      console.log(likes);
       userDispatch({ type: "LIKED_VIDEOS", payload: likes });
     } catch (error) {
       toast.error("Error Retrieving Liked Videos");
@@ -112,6 +110,72 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  const getUserHistory = async () => {
+    try {
+      const {
+        data: { history },
+      } = await callAPI(
+        "GET",
+        "/api/user/history",
+        null,
+        userDetails?.encodedToken
+      );
+      userDispatch({ type: "HISTORY", payload: history });
+    } catch (error) {
+      toast.error("Problem in retrieving your history!");
+    }
+  };
+
+  const addToHistory = async (video) => {
+    try {
+      const {
+        data: { history },
+      } = await callAPI(
+        "POST",
+        "/api/user/history",
+        { video },
+        userDetails?.encodedToken
+      );
+      userDispatch({ type: "HISTORY", payload: history });
+    } catch (error) {
+      toast.error("Couldn't add videos to history");
+    }
+  };
+
+  const removeVideoFromHistory = async (_id) => {
+    try {
+      const {
+        data: { history },
+      } = await callAPI(
+        "DELETE",
+        `/api/user/history/${_id}`,
+        null,
+        userDetails?.encodedToken
+      );
+      userDispatch({ type: "HISTORY", payload: history });
+      toast.success("Removed Video from History");
+    } catch (error) {
+      toast.error("Could not remove video from history.");
+    }
+  };
+
+  const emptyHistory = async () => {
+    try {
+      const {
+        data: { history },
+      } = await callAPI(
+        "DELETE",
+        `/api/user/history/all`,
+        null,
+        userDetails?.encodedToken
+      );
+      userDispatch({ type: "HISTORY", payload: history });
+      toast.success("Cleared History.");
+    } catch (error) {
+      toast.error("Could not empty your history");
+    }
+  };
+
   const value = {
     userState,
     userDispatch,
@@ -121,6 +185,10 @@ const AuthProvider = ({ children }) => {
     getAllLikedVideos,
     addToLikedVideos,
     removeFromLikedVideos,
+    getUserHistory,
+    addToHistory,
+    removeVideoFromHistory,
+    emptyHistory,
     testUser,
   };
 
