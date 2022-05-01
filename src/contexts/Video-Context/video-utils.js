@@ -23,8 +23,6 @@ export const videosReducer = (state, action) => {
       return { ...state, allVideosLoading: payload };
     case "GET_ALL_CATEGORIES":
       return { ...state, allCategories: payload };
-    case "CURRENT_VIDEO":
-      return { ...state, currVideo: payload };
     default:
       return initialVideosState;
   }

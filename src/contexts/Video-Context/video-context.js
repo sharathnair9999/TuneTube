@@ -72,7 +72,7 @@ const VideosProvider = ({ children }) => {
     getVideo,
     getThumbnail,
     searchParams,
-    setSearchParams
+    setSearchParams,
   };
 
   return (

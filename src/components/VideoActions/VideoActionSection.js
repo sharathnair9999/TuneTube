@@ -1,12 +1,13 @@
 import React from "react";
 import { IoEllipsisVerticalOutline } from "react-icons/io5";
 import { useClickOutside } from "../../custom-hooks";
+import HistoryButton from "./HistoryButton";
 import Like from "./Like";
 import PlaylistButton from "./PlaylistButton";
 import "./VideoActions.css";
 import WatchLaterButton from "./WatchLaterButton";
 
-const VideoActionSection = ({ video }) => {
+const VideoActionSection = ({ video, historyCard }) => {
   const { ref, isComponentVisible, setIsComponentVisible } =
     useClickOutside(false);
   return (
@@ -24,6 +25,7 @@ const VideoActionSection = ({ video }) => {
         onMouseLeave={() => setIsComponentVisible(false)}
       >
         <Like video={video} />
+        {historyCard && <HistoryButton video={video} />}
         <WatchLaterButton video={video} />
         <PlaylistButton video={video} />
       </section>

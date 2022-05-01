@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./SingleVideoPage.css";
 import ReactPlayer from "react-player";
 import { Link, useParams } from "react-router-dom";
-import { useVideos } from "../../contexts";
+import { useAuth, useVideos } from "../../contexts";
 import { useDocumentTitle } from "../../custom-hooks";
 import { constants } from "../../app-utils";
 import ReactTooltip from "react-tooltip";
@@ -24,10 +24,17 @@ const SingleVideoPage = () => {
     getThumbnail,
   } = useVideos();
 
+  const {
+    userState: { isLoggedIn, history },
+    addToHistory,
+  } = useAuth();
+
   const [, setDocuemntTitle] = useDocumentTitle("");
   useEffect(() => {
+    (async () => {
+      await getVideo(videoId);
+    })();
     allVideos.length === 0 && getAllVideos();
-    getVideo(videoId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoId]);
 
@@ -35,6 +42,18 @@ const SingleVideoPage = () => {
     setDocuemntTitle(titles.video(currVideo.title));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currVideo]);
+
+  const isInHistory = history.some(
+    (historyVideo) => historyVideo._id === currVideo._id
+  );
+
+  const handleHistory = () => {
+    isLoggedIn &&
+      !isInHistory &&
+      setTimeout(() => {
+        addToHistory(currVideo);
+      }, 2000);
+  };
 
   const nextVideos = allVideos.filter((video) => video._id !== currVideo._id);
 
@@ -52,6 +71,7 @@ const SingleVideoPage = () => {
               height="100%"
               controls
               playing
+              onStart={handleHistory}
             />
           )}
         </div>

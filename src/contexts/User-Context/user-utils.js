@@ -38,6 +38,8 @@ export const userReducer = (state, action) => {
         ...state,
         likedVideos: payload,
       };
+    case "HISTORY":
+      return { ...state, history: payload };
     default:
       return state;
   }
