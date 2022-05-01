@@ -1,10 +1,13 @@
 import React from "react";
 import { useAuth } from "../../contexts";
 import { AiOutlineLike, AiFillLike } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Like = ({ video }) => {
   const navigate = useNavigate()
+  const location = useLocation()
+  console.log(location);
+  console.log(navigate);
   const {
     addToLikedVideos,
     removeFromLikedVideos,

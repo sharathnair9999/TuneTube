@@ -51,4 +51,9 @@
   .video-card {
     width: 100%;
   }
+  .video-card:hover {
+    transform: scale(1.01);
+    transition: transform 0.1s ease-in-out;
+  }
+  
 }
