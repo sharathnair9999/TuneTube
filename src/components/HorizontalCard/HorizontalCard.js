@@ -6,13 +6,13 @@ import { useVideos } from "../../contexts";
 import { Link } from "react-router-dom";
 import VideoActionSection from "../VideoActions/VideoActionSection";
 
-const HorizontalCard = ({ video, sNo }) => {
+const HorizontalCard = ({ video, sNo, historyCard }) => {
   const { getThumbnail } = useVideos();
   const { _id, title, creator, creatorImg } = video;
   const thumbnai = getThumbnail(_id);
   return (
     <div className="like-card flex justify-center items-fs  w-100">
-      <span className="pr-1 serial-no pt-1">{sNo+1}</span>
+      <span className="pr-1 serial-no pt-1">{sNo + 1}</span>
       <Link to={`/explore/${_id}`}>
         <img src={thumbnai} alt={title} className="responsive-img" />
       </Link>
@@ -29,7 +29,7 @@ const HorizontalCard = ({ video, sNo }) => {
           <small>{creator}</small>
         </section>
       </div>
-      <VideoActionSection id={_id} video={video} />
+      <VideoActionSection id={_id} video={video} historyCard={historyCard} />
     </div>
   );
 };
