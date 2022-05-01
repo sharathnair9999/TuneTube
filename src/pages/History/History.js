@@ -1,12 +1,17 @@
 import React from "react";
+import { constants } from "../../app-utils";
 import { EmptyData, HorizontalCard } from "../../components";
 import { useAuth } from "../../contexts";
+import { useDocumentTitle } from "../../custom-hooks";
 import "./History.css";
 
 const History = () => {
   const {
     userState: { history },
   } = useAuth();
+
+  const { titles } = constants;
+  useDocumentTitle(titles.history());
 
   return (
     <div className="flex-col flex justify-fs items-fs  gap-1 p-sm">

@@ -125,6 +125,26 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  const getUserWatchLater = async () => {
+    if (!userState.isLoggedIn || !userDetails) {
+      return;
+    }
+    try {
+      const {
+        data: { watchlater },
+      } = await callAPI(
+        "GET",
+        "/api/user/watchlater",
+        null,
+        userDetails?.encodedToken
+      );
+      console.log(watchlater);
+      userDispatch({ type: "WATCH_LATER", payload: watchlater });
+    } catch (error) {
+      toast.error("Problem in retrieving your watch later videos!");
+    }
+  };
+
   const addToHistory = async (video) => {
     try {
       const {
@@ -138,6 +158,22 @@ const AuthProvider = ({ children }) => {
       userDispatch({ type: "HISTORY", payload: history });
     } catch (error) {
       toast.error("Couldn't add videos to history");
+    }
+  };
+  const addToWatchLater = async (video) => {
+    try {
+      const {
+        data: { watchlater },
+      } = await callAPI(
+        "POST",
+        "/api/user/watchlater",
+        { video: video },
+        userDetails?.encodedToken
+      );
+      userDispatch({ type: "WATCH_LATER", payload: watchlater });
+      toast.success("Added Video to Watch Later");
+    } catch (error) {
+      toast.error("Couldn't add videos to watch later");
     }
   };
 
@@ -155,6 +191,22 @@ const AuthProvider = ({ children }) => {
       toast.success("Removed Video from History");
     } catch (error) {
       toast.error("Could not remove video from history.");
+    }
+  };
+  const removeFromWatchLater = async (_id) => {
+    try {
+      const {
+        data: { watchlater },
+      } = await callAPI(
+        "DELETE",
+        `/api/user/watchlater/${_id}`,
+        null,
+        userDetails?.encodedToken
+      );
+      userDispatch({ type: "WATCH_LATER", payload: watchlater });
+      toast.success("Removed Video from Watch Later");
+    } catch (error) {
+      toast.error("Could not remove video from watch later.");
     }
   };
 
@@ -177,6 +229,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     getUserHistory();
+    getUserWatchLater();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userState.isLoggedIn]);
 
@@ -193,6 +246,8 @@ const AuthProvider = ({ children }) => {
     addToHistory,
     removeVideoFromHistory,
     emptyHistory,
+    addToWatchLater,
+    removeFromWatchLater,
     testUser,
   };
 

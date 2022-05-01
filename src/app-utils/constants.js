@@ -12,6 +12,21 @@ export const constants = {
     explore: function () {
       return `Explore | ${this.landing}`;
     },
+    liked: function () {
+      return `Your Likes | ${this.landing}`;
+    },
+    history: function () {
+      return `Your History | ${this.landing}`;
+    },
+    watchlater: function () {
+      return `Watch Later | ${this.landing}`;
+    },
+    login: function () {
+      return `Login | ${this.landing}`;
+    },
+    signup: function () {
+      return `Signup | ${this.landing}`;
+    },
     video: function (title) {
       return `${title} | ${this.landing}`;
     },
