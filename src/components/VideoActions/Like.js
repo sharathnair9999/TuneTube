@@ -1,8 +1,10 @@
 import React from "react";
 import { useAuth } from "../../contexts";
 import { AiOutlineLike, AiFillLike } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const Like = ({ video }) => {
+  const navigate = useNavigate()
   const {
     addToLikedVideos,
     removeFromLikedVideos,
@@ -13,7 +15,7 @@ const Like = ({ video }) => {
     (likedVideo) => likedVideo._id === video._id
   );
   const handleLike = () => {
-    !isVideoLiked ? addToLikedVideos(video) : removeFromLikedVideos(video._id);
+    isLoggedIn ? !isVideoLiked ? addToLikedVideos(video) : removeFromLikedVideos(video._id) : navigate("/login");
   };
   return (
     <button className="btn-transparent" onClick={() => handleLike()}>
