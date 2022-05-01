@@ -2,15 +2,17 @@ import "./HorizontalCard.css";
 
 import React from "react";
 import { useVideos } from "../../contexts";
-import { IoEllipsisVerticalOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
 
-const HorizontalCard = ({ video }) => {
+import { Link } from "react-router-dom";
+import VideoActionSection from "../VideoActions/VideoActionSection";
+
+const HorizontalCard = ({ video, sNo }) => {
   const { getThumbnail } = useVideos();
   const { _id, title, creator, creatorImg } = video;
   const thumbnai = getThumbnail(_id);
   return (
-    <div className="like-card flex justify-fs items-fs  w-100">
+    <div className="like-card flex justify-center items-fs  w-100">
+      <span className="pr-1 serial-no pt-1">{sNo+1}</span>
       <Link to={`/explore/${_id}`}>
         <img src={thumbnai} alt={title} className="responsive-img" />
       </Link>
@@ -27,11 +29,7 @@ const HorizontalCard = ({ video }) => {
           <small>{creator}</small>
         </section>
       </div>
-      <section className="video-actions-container">
-      <button className="btn-transparent video-actions-btn">
-        <IoEllipsisVerticalOutline color="white" size={"1rem"} />
-      </button>
-      </section>
+      <VideoActionSection id={_id} video={video} />
     </div>
   );
 };
