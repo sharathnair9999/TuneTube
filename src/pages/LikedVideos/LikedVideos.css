@@ -1,0 +1,32 @@
+.title {
+  font-weight: 300;
+  border-bottom: 2px solid var(--bg-primary-200);
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-block: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.liked-videos-page {
+  text-align: center;
+}
+
+.like-skeleton-container .listing-skeleton .image.skeleton {
+  max-width: 20rem;
+  height: 10rem;
+}
+
+.like-skeleton-container .listing-skeleton .text-section {
+  gap: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .like-skeleton-container .listing-skeleton .image.skeleton {
+    max-width: 12rem;
+    height: 7rem;
+  }
+
+  .title{
+    font-size: 1rem;
+  }
+}

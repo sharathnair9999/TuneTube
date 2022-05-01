@@ -8,7 +8,7 @@ import {
   AiFillLike,
   AiOutlineHistory,
 } from "react-icons/ai";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { MdExplore, MdWatchLater } from "react-icons/md";
 import { ImList } from "react-icons/im";
 import { useAuth } from "../../contexts";
@@ -17,8 +17,6 @@ import UserAvatar from "../UserAvatar/UserAvatar";
 const NavBar = () => {
   const { ref, isComponentVisible, setIsComponentVisible } =
     useClickOutside(false);
-
-  const { pathname } = useLocation();
   const navigate = useNavigate();
 
   const {
@@ -76,7 +74,7 @@ const NavBar = () => {
           <span className="word word-1">UnboxTube</span>
         </span>
       </Link>
-      {pathname !== "/login" && pathname !== "/signup" && !isLoggedIn && (
+      {!isLoggedIn && (
         <button
           className="login-btn btn-primary btn"
           onClick={() => navigate("/login")}

@@ -1,15 +1,16 @@
-export const savedDetails = () =>
+const savedDetails = () =>
   JSON.parse(localStorage.getItem("userToken")) || null;
 
+export const userDetails = savedDetails();
+
 export const initialUserState = {
-  isLoggedIn: savedDetails()?.encodedToken ? true : false,
-  firstName: savedDetails()?.firstName || null,
-  lastName: savedDetails()?.lastName || null,
+  isLoggedIn: userDetails?.encodedToken ? true : false,
+  firstName: userDetails?.firstName || null,
+  lastName: userDetails?.lastName || null,
   likedVideos: [],
   watchLater: [],
   history: [],
   playlists: [],
-  alert: null,
 };
 
 export const userReducer = (state, action) => {
@@ -23,9 +24,20 @@ export const userReducer = (state, action) => {
         lastName: payload.lastName,
       };
     case "LOGOUT_USER":
-      return initialUserState;
-    case "ERROR":
-      return { ...state, alert: payload };
+      return {
+        isLoggedIn: false,
+        firstName: null,
+        lastName: null,
+        likedVideos: [],
+        watchLater: [],
+        history: [],
+        playlists: [],
+      };
+    case "LIKED_VIDEOS":
+      return {
+        ...state,
+        likedVideos: payload,
+      };
     default:
       return state;
   }

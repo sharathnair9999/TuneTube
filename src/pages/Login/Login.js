@@ -15,9 +15,7 @@ const Login = () => {
   const submitUser = async (e, details) => {
     e.preventDefault();
     await loginUser(details);
-    setTimeout(() => {
-      navigate("/");
-    }, 2000);
+    navigate(-1);
   };
 
   const handleChange = (e) => {

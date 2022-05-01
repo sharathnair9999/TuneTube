@@ -1,0 +1,67 @@
+.like-card{
+  max-width: 1200px;
+}
+
+.like-card .responsive-img {
+  max-width: 18rem;
+  transition: all 0.2s ease-in-out;
+  margin: 0 9px 0 0;
+}
+.like-card .video-actions-container {
+  margin: 5px 0 auto auto;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-text {
+  flex-shrink: 1;
+}
+.like-card .card-text .card-title {
+  font-size: 1.1rem;
+}
+.like-card .card-text small {
+  font-size: 0.9rem;
+  font-weight: 200;
+}
+
+.like-card .card-text .creator-img {
+  max-width: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+}
+.serial-no{
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .like-card .responsive-img {
+    width: 11rem;
+    transition: all 0.2s ease-in-out;
+    margin: 0 6px 0 0;
+  }
+  
+  .like-card .card-text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .like-card .card-text .card-title {
+    font-size: 0.9rem;
+  }
+  .like-card .card-text small {
+    font-size: 0.7rem;
+  }
+  .like-card .card-text .responsive-img.creator-img {
+    max-width: 1.6rem;
+    width: 1.6rem;
+  }
+  .like-card .video-actions-container {
+    margin: 1rem 0 auto auto;
+    transition: all 0.2s ease-in-out;
+  }
+  .serial-no{
+    font-size: 10px;
+  }
+}

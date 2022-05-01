@@ -1,0 +1,48 @@
+.video-actions-btn,
+.video-action-btns button {
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.video-actions-btn:hover,
+.video-action-btns button:hover {
+  transition: all 0.2s ease-in-out;
+  background-color: var(--bg-primary-200);
+}
+
+.video-actions-container {
+  position: relative;
+}
+
+.video-action-btns {
+  position: absolute;
+  top: 100%;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.show-options {
+  transition: opacity 0.1s ease-in-out;
+  opacity: 1;
+  visibility: initial;
+}
+
+.hide-options {
+  transition: opacity 0.1s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .video-action-btns {
+    position: absolute;
+    top: 2rem;
+    padding: 4px 8px;
+    border-radius: 10px;
+  }
+}

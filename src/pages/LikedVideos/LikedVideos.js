@@ -1,10 +1,35 @@
-import React from 'react'
-import "./LikedVideos.css"
+import React, { useEffect } from "react";
+import { EmptyData, HorizontalCard } from "../../components";
+import { useAuth } from "../../contexts";
+import "./LikedVideos.css";
 
 const LikedVideos = () => {
-  return (
-    <div>LikedVideos</div>
-  )
-}
+  const {
+    userState: { likedVideos },
+    getAllLikedVideos,
+  } = useAuth();
 
-export default LikedVideos
+  useEffect(() => {
+    likedVideos.length === 0 && getAllLikedVideos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <div className="flex-col flex justify-fs items-fs  gap-1 p-sm">
+      <p className=" title">{`Liked Videos ${
+        likedVideos.length > 0 ? `- ${likedVideos.length}` : ""
+      }`}</p>
+      {likedVideos.length === 0 ? (
+        <EmptyData msg={"You didn't like any videos from us!"} url={"/explore"} />
+      ) : (
+        <div className="flex justify-center items-center flex-col gap-sm w-100">
+          {likedVideos.map((video, sNo) => (
+            <HorizontalCard video={video} key={video._id} sNo={sNo} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default LikedVideos;

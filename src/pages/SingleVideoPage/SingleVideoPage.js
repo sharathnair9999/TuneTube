@@ -5,16 +5,13 @@ import { Link, useParams } from "react-router-dom";
 import { useVideos } from "../../contexts";
 import { useDocumentTitle } from "../../custom-hooks";
 import { constants } from "../../app-utils";
-import { AiOutlineLike, AiFillLike } from "react-icons/ai";
-import {
-  MdOutlineWatchLater,
-  MdWatchLater,
-  MdPlaylistAdd,
-  MdPlaylistAddCheck,
-} from "react-icons/md";
-import { IoIosShareAlt } from "react-icons/io";
 import ReactTooltip from "react-tooltip";
-import { SkeletalLoading } from "../../components";
+import {
+  Like,
+  PlaylistButton,
+  SkeletalLoading,
+  WatchLaterButton,
+} from "../../components";
 
 const SingleVideoPage = () => {
   const { videoId } = useParams();
@@ -84,15 +81,9 @@ const SingleVideoPage = () => {
               <span>{currVideo.creator}</span>
             </div>
             <div className="video-actions ml-auto">
-              <button>
-                <AiOutlineLike />
-              </button>
-              <button>
-                <MdOutlineWatchLater />
-              </button>
-              <button>
-                <MdPlaylistAdd />
-              </button>
+              <Like video={currVideo} />
+              <WatchLaterButton />
+              <PlaylistButton />
             </div>
           </div>
         </div>
@@ -113,13 +104,11 @@ const SingleVideoPage = () => {
                 </Link>
                 <div className="card-details flex-col flex justify-fs items-fs">
                   <ReactTooltip place="top" effect="solid" />
-
                   <p className="video-title">
                     <Link to={`/explore/${_id}`} data-tip={title}>
                       {title}
                     </Link>
                   </p>
-
                   <p className="video-creator">{creator}</p>
                   <p className="video-upload-date">{uploadedOn}</p>
                 </div>

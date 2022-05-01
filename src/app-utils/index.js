@@ -1,7 +1,7 @@
 import axios from "axios";
 import { constants } from "./constants";
 
-export const callAPI = (method, url, body, token=null) => {
+export const callAPI = (method, url, body, token = null) => {
   return token
     ? axios({
         method: method,
@@ -17,7 +17,7 @@ export const callAPI = (method, url, body, token=null) => {
 };
 
 export const capitalize = (word) => {
-  return word[0].toUpperCase() + word.substring(1)
-}
+  return word[0].toUpperCase() + word.substring(1);
+};
 
-export {constants}
+export { constants };
