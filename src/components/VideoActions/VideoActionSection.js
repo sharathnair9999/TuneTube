@@ -7,7 +7,13 @@ import PlaylistButton from "./PlaylistButton";
 import "./VideoActions.css";
 import WatchLaterButton from "./WatchLaterButton";
 
-const VideoActionSection = ({ video, historyCard }) => {
+const VideoActionSection = ({
+  video,
+  historyCard,
+  likeCard,
+  watchLaterCard,
+  exploreCard,
+}) => {
   const { ref, isComponentVisible, setIsComponentVisible } =
     useClickOutside(false);
   return (
@@ -24,9 +30,9 @@ const VideoActionSection = ({ video, historyCard }) => {
         }  gap-1`}
         onMouseLeave={() => setIsComponentVisible(false)}
       >
-        <Like video={video} />
+        {(likeCard || exploreCard) && <Like video={video} />}
         {historyCard && <HistoryButton video={video} />}
-        <WatchLaterButton video={video} />
+        {(watchLaterCard || exploreCard) && <WatchLaterButton video={video} />}
         <PlaylistButton video={video} />
       </section>
     </div>

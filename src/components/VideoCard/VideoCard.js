@@ -19,7 +19,7 @@ const VideoCard = ({ video }) => {
           <p className="card-title">{title}</p>
           <small className="creator-name">{creator}</small>
         </section>
-        <VideoActionSection video={video} />
+        <VideoActionSection video={video} exploreCard />
       </div>
     </div>
   );

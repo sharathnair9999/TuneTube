@@ -6,7 +6,13 @@ import { useVideos } from "../../contexts";
 import { Link } from "react-router-dom";
 import VideoActionSection from "../VideoActions/VideoActionSection";
 
-const HorizontalCard = ({ video, sNo, historyCard }) => {
+const HorizontalCard = ({
+  video,
+  sNo,
+  historyCard,
+  likeCard,
+  watchLaterCard,
+}) => {
   const { getThumbnail } = useVideos();
   const { _id, title, creator, creatorImg } = video;
   const thumbnai = getThumbnail(_id);
@@ -29,7 +35,13 @@ const HorizontalCard = ({ video, sNo, historyCard }) => {
           <small>{creator}</small>
         </section>
       </div>
-      <VideoActionSection id={_id} video={video} historyCard={historyCard} />
+      <VideoActionSection
+        id={_id}
+        video={video}
+        historyCard={historyCard}
+        likeCard={likeCard}
+        watchLaterCard={watchLaterCard}
+      />
     </div>
   );
 };

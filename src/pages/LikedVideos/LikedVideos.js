@@ -32,7 +32,7 @@ const LikedVideos = () => {
       ) : (
         <div className="flex justify-center items-center flex-col gap-sm w-100">
           {likedVideos.map((video, sNo) => (
-            <HorizontalCard video={video} key={video._id} sNo={sNo} />
+            <HorizontalCard video={video} key={video._id} sNo={sNo} likeCard />
           ))}
         </div>
       )}
