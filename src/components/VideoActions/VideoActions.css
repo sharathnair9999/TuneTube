@@ -27,13 +27,15 @@
 }
 
 .show-options {
-  transform: translateX(0);
-  transition: transform 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
+  opacity: 1;
+  visibility: initial;
 }
 
 .hide-options {
-  transform: translateX(200%);
-  transition: transform 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
 }
 
 @media screen and (max-width: 768px) {
