@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { callAPI, capitalize } from "../../app-utils";
@@ -21,19 +21,15 @@ const AuthProvider = ({ children }) => {
           encodedToken,
           foundUser: { firstName, lastName },
         },
-      } = await toast.promise(callAPI("POST", "/api/auth/login", credentials), {
-        pending: "Logging You In",
-        error: "Could not login",
-        success: `Logged In Successfully`,
-      });
-      userDispatch({
-        type: "LOGIN_USER",
-        payload: { firstName, lastName },
-      });
+      } = await callAPI("POST", "/api/auth/login", credentials);
       localStorage.setItem(
         "userToken",
         JSON.stringify({ encodedToken, firstName, lastName })
       );
+      userDispatch({
+        type: "LOGIN_USER",
+        payload: { firstName: firstName, lastName: lastName },
+      });
     } catch (error) {
       toast.error("Could not login at this moment!");
     }
@@ -111,6 +107,9 @@ const AuthProvider = ({ children }) => {
   };
 
   const getUserHistory = async () => {
+    if (!userState.isLoggedIn || !userDetails) {
+      return;
+    }
     try {
       const {
         data: { history },
@@ -175,6 +174,10 @@ const AuthProvider = ({ children }) => {
       toast.error("Could not empty your history");
     }
   };
+
+  useEffect(() => {
+    getUserHistory();
+  }, [userState.isLoggedIn]);
 
   const value = {
     userState,

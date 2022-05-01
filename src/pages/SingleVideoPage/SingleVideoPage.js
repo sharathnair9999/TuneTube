@@ -25,14 +25,16 @@ const SingleVideoPage = () => {
   } = useVideos();
 
   const {
-    userState: { isLoggedIn },
+    userState: { isLoggedIn, history },
     addToHistory,
   } = useAuth();
 
   const [, setDocuemntTitle] = useDocumentTitle("");
   useEffect(() => {
+    (async () => {
+      await getVideo(videoId);
+    })();
     allVideos.length === 0 && getAllVideos();
-    getVideo(videoId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoId]);
 
@@ -41,8 +43,16 @@ const SingleVideoPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currVideo]);
 
+  const isInHistory = history.some(
+    (historyVideo) => historyVideo._id === currVideo._id
+  );
+
   const handleHistory = () => {
-    isLoggedIn && addToHistory(currVideo);
+    isLoggedIn &&
+      !isInHistory &&
+      setTimeout(() => {
+        addToHistory(currVideo);
+      }, 2000);
   };
 
   const nextVideos = allVideos.filter((video) => video._id !== currVideo._id);

@@ -1,17 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { EmptyData, HorizontalCard } from "../../components";
 import { useAuth } from "../../contexts";
 import "./History.css";
 
 const History = () => {
   const {
-    getUserHistory,
     userState: { history },
   } = useAuth();
-
-  useEffect(() => {
-    getUserHistory();
-  }, []);
 
   return (
     <div className="flex-col flex justify-fs items-fs  gap-1 p-sm">
