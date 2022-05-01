@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./SingleVideoPage.css";
 import ReactPlayer from "react-player";
 import { Link, useParams } from "react-router-dom";
-import { useVideos } from "../../contexts";
+import { useAuth, useVideos } from "../../contexts";
 import { useDocumentTitle } from "../../custom-hooks";
 import { constants } from "../../app-utils";
 import ReactTooltip from "react-tooltip";
@@ -24,6 +24,11 @@ const SingleVideoPage = () => {
     getThumbnail,
   } = useVideos();
 
+  const {
+    userState: { isLoggedIn },
+    addToHistory,
+  } = useAuth();
+
   const [, setDocuemntTitle] = useDocumentTitle("");
   useEffect(() => {
     allVideos.length === 0 && getAllVideos();
@@ -35,6 +40,10 @@ const SingleVideoPage = () => {
     setDocuemntTitle(titles.video(currVideo.title));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currVideo]);
+
+  const handleHistory = () => {
+    isLoggedIn && addToHistory(currVideo);
+  };
 
   const nextVideos = allVideos.filter((video) => video._id !== currVideo._id);
 
@@ -52,6 +61,7 @@ const SingleVideoPage = () => {
               height="100%"
               controls
               playing
+              onStart={handleHistory}
             />
           )}
         </div>
