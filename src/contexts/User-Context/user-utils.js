@@ -40,6 +40,8 @@ export const userReducer = (state, action) => {
       };
     case "HISTORY":
       return { ...state, history: payload };
+    case "WATCH_LATER":
+      return { ...state, watchLater: payload };
     default:
       return state;
   }
