@@ -12,7 +12,7 @@ const LikedVideos = () => {
   } = useAuth();
 
   useEffect(() => {
-    likedVideos.length === 0 && getAllLikedVideos();
+    likedVideos?.length === 0 && getAllLikedVideos();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -22,16 +22,16 @@ const LikedVideos = () => {
   return (
     <div className="flex-col flex justify-fs items-fs  gap-1 p-sm">
       <p className=" title">{`Liked Videos ${
-        likedVideos.length > 0 ? `- ${likedVideos.length}` : ""
+        likedVideos?.length > 0 ? `- ${likedVideos?.length}` : ""
       }`}</p>
-      {likedVideos.length === 0 ? (
+      {likedVideos?.length === 0 ? (
         <EmptyData
           msg={"You didn't like any videos from us!"}
           url={"/explore"}
         />
       ) : (
         <div className="flex justify-center items-center flex-col gap-sm w-100">
-          {likedVideos.map((video, sNo) => (
+          {likedVideos?.map((video, sNo) => (
             <HorizontalCard video={video} key={video._id} sNo={sNo} likeCard />
           ))}
         </div>

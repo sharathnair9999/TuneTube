@@ -12,7 +12,7 @@ const Like = ({ video }) => {
     userState: { likedVideos, isLoggedIn },
   } = useAuth();
 
-  const isVideoLiked = likedVideos.some(
+  const isVideoLiked = likedVideos?.some(
     (likedVideo) => likedVideo._id === video._id
   );
   const handleLike = () => {

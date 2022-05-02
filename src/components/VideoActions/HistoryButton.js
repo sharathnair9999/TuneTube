@@ -12,7 +12,7 @@ const HistoryButton = ({ video }) => {
     userState: { history, isLoggedIn },
   } = useAuth();
 
-  const isInHistory = history.some(
+  const isInHistory = history?.some(
     (historyVideo) => historyVideo._id === video._id
   );
   const handleHistory = () => {
