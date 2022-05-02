@@ -1,7 +1,5 @@
-const savedDetails = () =>
+export const userDetails =
   JSON.parse(localStorage.getItem("userToken")) || null;
-
-export const userDetails = savedDetails();
 
 export const initialUserState = {
   isLoggedIn: userDetails?.encodedToken ? true : false,
@@ -19,10 +17,13 @@ export const userReducer = (state, action) => {
   switch (type) {
     case "LOGIN_USER":
       return {
-        ...state,
         isLoggedIn: true,
         firstName: payload.firstName,
         lastName: payload.lastName,
+        likes: payload.likes,
+        watchlater: payload.watchlater,
+        history: payload.history,
+        playlists: payload.playlists,
       };
     case "LOGOUT_USER":
       return {

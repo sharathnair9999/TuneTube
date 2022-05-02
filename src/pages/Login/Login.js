@@ -13,11 +13,10 @@ const Login = () => {
     password: "",
   };
   const [credentials, setCredentials] = useState(initialCredentialState);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const submitUser = async (e, details) => {
     e.preventDefault();
     await loginUser(details);
-    navigate(-1);
   };
 
   const handleChange = (e) => {

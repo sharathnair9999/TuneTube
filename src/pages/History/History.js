@@ -18,7 +18,7 @@ const History = () => {
 
   return (
     <div className=" history flex-col flex justify-fs items-fs  gap-1 p-sm">
-      <p className="w-100 flex justify-space-btw items-center">
+      <div className="w-100 flex justify-space-btw items-center">
         <span className=" title">{`History ${
           history.length > 0 ? `- ${history.length}` : ""
         }`}</span>
@@ -46,7 +46,7 @@ const History = () => {
             <span className="slider round"></span>
           </label>
         </section>
-      </p>
+      </div>
       {history.length === 0 ? (
         <EmptyData msg={"You haven't watched anything yet"} url={"/explore"} />
       ) : (
