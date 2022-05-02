@@ -1,5 +1,6 @@
 .video-card {
   width: 100%;
+  max-width: 23rem;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -36,12 +37,12 @@
   align-items: flex-start;
 }
 
-.video-card-details .video-actions-container{
+.video-card-details .video-actions-container {
   margin-right: 0;
   margin-left: auto;
 }
 
-.video-card-details .video-actions-container .video-action-btns{
+.video-card-details .video-actions-container .video-action-btns {
   top: -200%;
   right: 5px;
 }
@@ -65,5 +66,4 @@
     transform: scale(1.01);
     transition: transform 0.1s ease-in-out;
   }
-  
 }
