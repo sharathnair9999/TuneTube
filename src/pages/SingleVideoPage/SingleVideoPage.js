@@ -10,6 +10,7 @@ import {
   Like,
   PlaylistButton,
   SkeletalLoading,
+  VideoActionSection,
   WatchLaterButton,
 } from "../../components";
 
@@ -110,27 +111,30 @@ const SingleVideoPage = () => {
       </div>
       <div className="next-videos flex-col flex justify-fs items-center gap-sm">
         {allVideos.length !== 0
-          ? nextVideos.map(({ _id, title, creator, uploadedOn }) => (
+          ? nextVideos.map((video) => (
               <div
-                key={_id}
+                key={video._id}
                 className="horizontal-video-card flex items-fs justify-fs gap-sm"
               >
-                <Link to={`/explore/${_id}`}>
+                <Link to={`/explore/${video._id}`}>
                   <img
-                    src={getThumbnail(_id)}
-                    alt={title}
+                    src={getThumbnail(video._id)}
+                    alt={video.title}
                     className="responsive-img"
                   />
                 </Link>
                 <div className="card-details flex-col flex justify-fs items-fs">
                   <ReactTooltip place="top" effect="solid" />
                   <p className="video-title">
-                    <Link to={`/explore/${_id}`} data-tip={title}>
-                      {title}
+                    <Link to={`/explore/${video._id}`} data-tip={video.title}>
+                      {video.title}
                     </Link>
                   </p>
-                  <p className="video-creator">{creator}</p>
-                  <p className="video-upload-date">{uploadedOn}</p>
+                  <p className="video-creator">{video.creator}</p>
+                  <p className="video-upload-date">{video.uploadedOn}</p>
+                  <span className="pr-1 mt-1 ml-auto">
+                    <VideoActionSection video={video} exploreCard />
+                  </span>
                 </div>
               </div>
             ))
