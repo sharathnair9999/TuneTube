@@ -11,6 +11,7 @@ export const initialUserState = {
   watchLater: [],
   history: [],
   playlists: [],
+  enableHistory: false,
 };
 
 export const userReducer = (state, action) => {
@@ -40,6 +41,11 @@ export const userReducer = (state, action) => {
       };
     case "HISTORY":
       return { ...state, history: payload };
+    case "ENABLE_HISTORY":
+      return {
+        ...state,
+        enableHistory: payload,
+      };
     case "WATCH_LATER":
       return { ...state, watchLater: payload };
     default:
