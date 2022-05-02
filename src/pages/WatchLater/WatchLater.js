@@ -1,6 +1,6 @@
 import "./WatchLater.css";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth } from "../../contexts";
 import { EmptyData, HorizontalCard } from "../../components";
 import { constants } from "../../app-utils";
@@ -8,18 +8,23 @@ import { useDocumentTitle } from "../../custom-hooks";
 
 const WatchLater = () => {
   const {
-    userState: { watchLater },
+    userState: { watchlater },
+    getUserWatchLater,
   } = useAuth();
 
   const { titles } = constants;
   useDocumentTitle(titles.watchlater());
 
+  useEffect(() => {
+    watchlater?.length === 0 && getUserWatchLater();
+  }, []);
+
   return (
     <div className="flex-col flex justify-fs items-fs gap-1 p-sm">
       <p className=" title">{`Watch Later ${
-        watchLater.length > 0 ? `- ${watchLater.length}` : ""
+        watchlater?.length > 0 ? `- ${watchlater?.length}` : ""
       }`}</p>
-      {watchLater.length === 0 ? (
+      {watchlater?.length === 0 ? (
         <EmptyData
           msg={
             "You are pretty good at watching things. Still you can add 'em here to watch later."
@@ -28,7 +33,7 @@ const WatchLater = () => {
         />
       ) : (
         <div className="flex justify-center items-center flex-col gap-sm w-100">
-          {watchLater.map((video, sNo) => (
+          {watchlater?.map((video, sNo) => (
             <HorizontalCard
               video={video}
               key={video._id}

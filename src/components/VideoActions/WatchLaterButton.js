@@ -9,10 +9,10 @@ const WatchLaterButton = ({ video }) => {
   const {
     addToWatchLater,
     removeFromWatchLater,
-    userState: { watchLater, isLoggedIn },
+    userState: { watchlater, isLoggedIn },
   } = useAuth();
 
-  const isInWatchLater = watchLater?.some(
+  const isInWatchLater = watchlater?.some(
     (watchLaterVideo) => watchLaterVideo._id === video._id
   );
   const handleWatchLater = () => {

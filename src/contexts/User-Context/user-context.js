@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
           firstName: firstName,
           lastName: lastName,
           encodedToken: encodedToken,
-          likes: likes,
+          likedVideos: likes,
           watchlater: watchlater,
           history: history,
           playlists: playlists,
@@ -260,12 +260,6 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    getUserHistory();
-    getUserWatchLater();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userState.isLoggedIn]);
-
   const value = {
     userState,
     userDispatch,
@@ -273,6 +267,7 @@ const AuthProvider = ({ children }) => {
     signUpUser,
     logoutUser,
     getAllLikedVideos,
+    getUserWatchLater,
     addToLikedVideos,
     removeFromLikedVideos,
     getUserHistory,
