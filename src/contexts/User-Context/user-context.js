@@ -138,7 +138,6 @@ const AuthProvider = ({ children }) => {
         null,
         userDetails?.encodedToken
       );
-      console.log(watchlater);
       userDispatch({ type: "WATCH_LATER", payload: watchlater });
     } catch (error) {
       toast.error("Problem in retrieving your watch later videos!");
@@ -146,6 +145,10 @@ const AuthProvider = ({ children }) => {
   };
 
   const addToHistory = async (video) => {
+    if (userState.isLoggedIn && !userState.enableHistory) {
+      console.log("history disabled");
+      return;
+    }
     try {
       const {
         data: { history },
@@ -211,6 +214,10 @@ const AuthProvider = ({ children }) => {
   };
 
   const emptyHistory = async () => {
+    if (userState.history.length === 0) {
+      toast.warn("There are no videos here to delete");
+      return;
+    }
     try {
       const {
         data: { history },
