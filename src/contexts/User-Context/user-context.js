@@ -1,17 +1,24 @@
 import { createContext, useContext, useReducer, useEffect } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { callAPI, capitalize } from "../../app-utils";
-import { initialUserState, userReducer, userDetails } from "./user-utils";
+import { initialUserState, userReducer } from "./user-utils";
 
 const AuthContext = createContext(initialUserState);
 
 const AuthProvider = ({ children }) => {
   const [userState, userDispatch] = useReducer(userReducer, initialUserState);
+  const navigate = useNavigate();
 
   const testUser = {
     email: "adarshbalika@gmail.com",
     password: "adarshBalika123",
+  };
+
+  const userDetails = JSON.parse(localStorage.getItem("userToken")) || {
+    encodedToken: null,
+    firstName: null,
+    lastName: null,
   };
 
   const loginUser = async (credentials) => {
@@ -19,17 +26,37 @@ const AuthProvider = ({ children }) => {
       const {
         data: {
           encodedToken,
-          foundUser: { firstName, lastName },
+          foundUser: {
+            firstName,
+            lastName,
+            likes,
+            watchlater,
+            history,
+            playlists,
+          },
         },
       } = await callAPI("POST", "/api/auth/login", credentials);
       localStorage.setItem(
         "userToken",
-        JSON.stringify({ encodedToken, firstName, lastName })
+        JSON.stringify({
+          encodedToken: encodedToken,
+          firstName: firstName,
+          lastName: lastName,
+        })
       );
       userDispatch({
         type: "LOGIN_USER",
-        payload: { firstName: firstName, lastName: lastName },
+        payload: {
+          firstName: firstName,
+          lastName: lastName,
+          encodedToken: encodedToken,
+          likes: likes,
+          watchlater: watchlater,
+          history: history,
+          playlists: playlists,
+        },
       });
+      navigate(-1);
     } catch (error) {
       toast.error("Could not login at this moment!");
     }
@@ -146,7 +173,6 @@ const AuthProvider = ({ children }) => {
 
   const addToHistory = async (video) => {
     if (userState.isLoggedIn && !userState.enableHistory) {
-      console.log("history disabled");
       return;
     }
     try {
