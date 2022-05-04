@@ -12,21 +12,23 @@ const HorizontalCard = ({
   historyCard,
   likeCard,
   watchLaterCard,
+  playlistCard,
+  playlistId,
 }) => {
   const { getThumbnail } = useVideos();
   const { _id, title, creator, creatorImg } = video;
   const thumbnai = getThumbnail(_id);
   return (
-    <div className="like-card flex justify-center items-fs  w-100">
+    <div className="like-card flex justify-center items-fs px-1">
       <span className="pr-1 serial-no pt-1">{sNo + 1}</span>
       <Link to={`/explore/${_id}`}>
-        <img src={thumbnai} alt={title} className="responsive-img" />
+        <img src={thumbnai} alt={title} className="responsive-img thumbnail" />
       </Link>
-      <div className="card-text ">
+      <div className="card-text">
         <p className="card-title">
-          <Link to={`/explore/${_id}`}>{title}</Link>
+          <Link className="w-100" to={`/explore/${_id}`}>{title}</Link>
         </p>
-        <section className="creator-info flex justify-fs items-center">
+        <section className="flex justify-fs items-center">
           <img
             src={creatorImg}
             alt={creator}
@@ -41,6 +43,8 @@ const HorizontalCard = ({
         historyCard={historyCard}
         likeCard={likeCard}
         watchLaterCard={watchLaterCard}
+        playlistCard={playlistCard}
+        playlistId={playlistId}
       />
     </div>
   );
