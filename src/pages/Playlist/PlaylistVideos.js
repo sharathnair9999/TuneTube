@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { EmptyData, HorizontalCard } from "../../components";
 import { useAuth } from "../../contexts";
 
 const PlaylistVideos = () => {
   const { pathname } = useLocation();
   const {
-    deleteVideoFromPlaylist,
-    userState: { playlists, playlist, isLoggedIn },
+    userState: { playlists, playlist },
     userDispatch,
     getPlaylist,
   } = useAuth();

@@ -57,13 +57,13 @@
   font-size: 1rem;
 }
 
-.add-playlist-btn{
+.add-playlist-btn {
   margin-left: 10px;
 }
 
 @media screen and (max-width: 768px) {
-  .add-playlist-btn{
-   text-align: center;
+  .add-playlist-btn {
+    text-align: center;
   }
   .list-and-videos-container {
     flex-wrap: wrap;

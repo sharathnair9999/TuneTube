@@ -47,9 +47,6 @@
   font-family: inherit;
 }
 
-.modal-input {
-}
-
 ::placeholder {
   color: var(--font-white-500);
 }

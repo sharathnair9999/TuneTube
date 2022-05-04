@@ -26,7 +26,9 @@ const HorizontalCard = ({
       </Link>
       <div className="card-text">
         <p className="card-title">
-          <Link className="w-100" to={`/explore/${_id}`}>{title}</Link>
+          <Link className="w-100" to={`/explore/${_id}`}>
+            {title}
+          </Link>
         </p>
         <section className="flex justify-fs items-center">
           <img
