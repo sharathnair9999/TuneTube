@@ -306,6 +306,7 @@ const AuthProvider = ({ children }) => {
         userDetails?.encodedToken
       );
       userDispatch({ type: "ALL_PLAYLISTS", payload: playlists });
+      navigate("/playlists");
       toast.success(`Deleted Playlist successfully!`);
     } catch (error) {
       toast.error("Could not delete the playlist");
@@ -347,7 +348,6 @@ const AuthProvider = ({ children }) => {
   };
 
   const deleteVideoFromPlaylist = async (playlistId, videoId) => {
-    console.log(playlistId, videoId, userDetails?.encodedToken);
     try {
       const {
         data: { playlist },
@@ -357,7 +357,6 @@ const AuthProvider = ({ children }) => {
         null,
         userDetails?.encodedToken
       );
-      console.log(playlist);
       userDispatch({ type: "DELETE_FROM_PLAYLIST", payload: playlist });
       userDispatch({ type: "SINGLE_PLAYLIST", payload: playlist });
       toast.success("Deleted Video From Playlist");

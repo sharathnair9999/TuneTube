@@ -1,33 +1,15 @@
-import React, { useEffect } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import React from "react";
+import { useParams } from "react-router-dom";
 import { EmptyData, HorizontalCard } from "../../components";
 import { useAuth } from "../../contexts";
 
 const PlaylistVideos = () => {
-  const { pathname } = useLocation();
   const {
-    userState: { playlists, playlist },
-    userDispatch,
-    getPlaylist,
+    userState: { playlists },
   } = useAuth();
   const { playlistId } = useParams();
 
-  const findPlaylist = (id) => {
-    const playlistExists = playlists.some((playlist) => playlist._id === id);
-    if (playlistExists) {
-      const existingPlaylist = playlists.find(
-        (playlist) => playlist._id === id
-      );
-      userDispatch({ type: "SINGLE_PLAYLIST", payload: existingPlaylist });
-    } else getPlaylist(id);
-  };
-
-  useEffect(() => {
-    findPlaylist(playlistId);
-  }, [pathname]);
-
-  console.log(playlist);
-  console.log(playlists);
+  const playlist = playlists.find((playlist) => playlist._id === playlistId);
 
   return (
     <div className="playlist-videos-container mt-1">
