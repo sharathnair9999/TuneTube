@@ -1,15 +1,25 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useParams } from "react-router-dom";
+import { constants } from "../../app-utils";
 import { EmptyData, HorizontalCard } from "../../components";
 import { useAuth } from "../../contexts";
+import { useDocumentTitle } from "../../custom-hooks";
 
 const PlaylistVideos = () => {
   const {
     userState: { playlists },
   } = useAuth();
   const { playlistId } = useParams();
-
   const playlist = playlists.find((playlist) => playlist._id === playlistId);
+
+  const [documentTitle, setDocumentTitle] = useDocumentTitle(
+    constants.titles.video(playlist?.title)
+  );
+
+  useEffect(() => {
+    setDocumentTitle(constants.titles.video(playlist?.title))
+  }, [playlistId])
+  
 
   return (
     <div className="playlist-videos-container mt-1">

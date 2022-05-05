@@ -1,11 +1,15 @@
 import React, { useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
+import { constants } from "../../app-utils";
 import { EmptyData } from "../../components";
 import { useAuth } from "../../contexts";
+import { useDocumentTitle } from "../../custom-hooks";
 import "./Playlist.css";
 import Playlists from "./Playlists";
 
 const Playlist = () => {
+  const { playlistId } = useParams();
+  const [, setDocumentTitle] = useDocumentTitle(constants.titles.playlists());
   const {
     getAllPlaylists,
     userState: { playlists },
@@ -14,6 +18,10 @@ const Playlist = () => {
   useEffect(() => {
     playlists.length === 0 && getAllPlaylists();
   }, [playlists]);
+
+  useEffect(() => {
+    !playlistId && setDocumentTitle(constants.titles.playlists());
+  });
 
   return (
     <div>

@@ -29,6 +29,9 @@ export const constants = {
     signup: function () {
       return `Signup | ${this.landing}`;
     },
+    playlists: function () {
+      return `Playlists | ${this.landing}`;
+    },
     video: function (title) {
       return `${title} | ${this.landing}`;
     },
