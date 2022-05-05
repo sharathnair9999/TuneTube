@@ -12,7 +12,7 @@ const PlaylistVideos = () => {
   const { playlistId } = useParams();
   const playlist = playlists.find((playlist) => playlist._id === playlistId);
 
-  const [documentTitle, setDocumentTitle] = useDocumentTitle(
+  const [, setDocumentTitle] = useDocumentTitle(
     constants.titles.video(playlist?.title)
   );
 

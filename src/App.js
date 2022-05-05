@@ -102,7 +102,6 @@ function App() {
             <Route index element={<PlaylistLanding />} />
             <Route path=":playlistId" element={<PlaylistVideos />} />
           </Route>
-          {/* <Route path="mockapi" element={<Mockman />} /> */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         {(pathname === "/" || pathname === "/explore") && <Footer />}
