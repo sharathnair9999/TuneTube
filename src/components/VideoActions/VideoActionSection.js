@@ -13,6 +13,8 @@ const VideoActionSection = ({
   likeCard,
   watchLaterCard,
   exploreCard,
+  playlistCard,
+  playlistId,
 }) => {
   const { ref, isComponentVisible, setIsComponentVisible } =
     useClickOutside(false);
@@ -30,10 +32,16 @@ const VideoActionSection = ({
         }  gap-1`}
         onMouseLeave={() => setIsComponentVisible(false)}
       >
-        {(likeCard || exploreCard) && <Like video={video} />}
+        {(likeCard || exploreCard || playlistCard) && <Like video={video} />}
         {historyCard && <HistoryButton video={video} />}
         {(watchLaterCard || exploreCard) && <WatchLaterButton video={video} />}
-        <PlaylistButton video={video} />
+        {(playlistCard || exploreCard) && (
+          <PlaylistButton
+            video={video}
+            playlistCard={playlistCard}
+            playlistId={playlistId}
+          />
+        )}
       </section>
     </div>
   );

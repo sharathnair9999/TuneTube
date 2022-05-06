@@ -15,6 +15,7 @@ import Like from "./VideoActions/Like";
 import PlaylistButton from "./VideoActions/PlaylistButton";
 import WatchLaterButton from "./VideoActions/WatchLaterButton";
 import VideoActionSection from "./VideoActions/VideoActionSection";
+import PlaylistModal from "./PlaylistModal/PlaylistModal";
 
 export {
   VideoCard,
@@ -33,5 +34,6 @@ export {
   Like,
   PlaylistButton,
   WatchLaterButton,
-  VideoActionSection
+  VideoActionSection,
+  PlaylistModal
 };

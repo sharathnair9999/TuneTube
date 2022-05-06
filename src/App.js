@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "./App.css";
 import { Route, Routes, useLocation } from "react-router-dom";
-import Mockman from "mockman-js";
+// import Mockman from "mockman-js";
 import {
   ErrorPage,
   History,
@@ -14,13 +14,12 @@ import {
   WatchLater,
 } from "./pages";
 
-import {
-  RedirectLoggedInUser,
-  RequireAuth,
-} from "./contexts/User-Context/user-context";
-import { Footer, NavBar, SplashScreen } from "./components";
+import { RedirectLoggedInUser, RequireAuth } from "./contexts";
+import { Footer, NavBar, PlaylistModal, SplashScreen } from "./components";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PlaylistLanding from "./pages/Playlist/PlaylistLanding";
+import PlaylistVideos from "./pages/Playlist/PlaylistVideos";
 const LazyLanding = React.lazy(() => import("./pages/Landing/Landing"));
 
 function App() {
@@ -29,6 +28,7 @@ function App() {
   const scrollToTop = () => {
     mainContainerRef.current.scroll(0, 0);
   };
+
   useEffect(() => {
     scrollToTop();
   }, [pathname]);
@@ -37,6 +37,7 @@ function App() {
       <ToastContainer autoClose={2000} />
       <NavBar />
       <div className="main-container" ref={mainContainerRef}>
+        <PlaylistModal />
         <Routes>
           <Route
             path="/"
@@ -97,8 +98,10 @@ function App() {
                 <Playlist />
               </RequireAuth>
             }
-          />
-          <Route path="mockapi" element={<Mockman />} />
+          >
+            <Route index element={<PlaylistLanding />} />
+            <Route path=":playlistId" element={<PlaylistVideos />} />
+          </Route>
           <Route path="*" element={<ErrorPage />} />
         </Routes>
         {(pathname === "/" || pathname === "/explore") && <Footer />}

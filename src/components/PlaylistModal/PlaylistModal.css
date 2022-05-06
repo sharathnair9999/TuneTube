@@ -1,0 +1,88 @@
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.show-modal {
+  animation: fadeIn 0.2s ease-in-out;
+  background-color: hsla(0, 0%, 0%, 0.566);
+  visibility: initial;
+}
+
+.hide-modal {
+  visibility: hidden;
+}
+
+.each-playlist {
+  padding: 8px 0;
+}
+
+.playlist-modal {
+  background-color: var(--bg-primary-200);
+  box-shadow: 0 0 80px 10px rgba(0, 0, 0, 0.9);
+  padding: 10px 20px;
+  margin: 5px 10px;
+  border-radius: 5px;
+  width: 100%;
+  color: var(--all-white);
+  max-width: 300px;
+}
+
+.modal-input,
+.modal-description {
+  border: none;
+  outline: none;
+  background: var(--bg-primary-100);
+  color: var(--font-white-100);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+::placeholder {
+  color: var(--font-white-500);
+}
+
+[type="checkbox"] {
+  accent-color: var(--bg-primary-200);
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.modal-description {
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 5rem;
+  max-height: 10rem;
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.modal-overlay .btn-primary {
+  background-color: var(--black-transparent-2);
+}
+
+.modal-overlay .btn-primary:hover {
+  background-color: var(--black-transparent-1);
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: hsla(0, 0%, 0%, 0.273);
+  }
+  to {
+    background-color: hsla(0, 0%, 0%, 0.566);
+  }
+}

@@ -5,6 +5,8 @@ export const constants = {
       "https://res.cloudinary.com/sharath-media-library/image/upload/v1650564448/unbox%20tube/unbox-3_uwgrou.jpg",
     empty_box:
       "https://res.cloudinary.com/sharath-media-library/image/upload/v1650717624/unbox%20tube/empty_box_wtmfxc.png",
+    playlist:
+      "https://res.cloudinary.com/sharath-media-library/image/upload/v1651690252/unbox%20tube/playlists_t1nmoe.svg",
   },
   urlPrefix: `https://www.youtube-nocookie.com/embed`,
   titles: {
@@ -26,6 +28,9 @@ export const constants = {
     },
     signup: function () {
       return `Signup | ${this.landing}`;
+    },
+    playlists: function () {
+      return `Playlists | ${this.landing}`;
     },
     video: function (title) {
       return `${title} | ${this.landing}`;

@@ -1,23 +1,37 @@
 import React from "react";
-import { MdPlaylistAdd, MdPlaylistAddCheck } from "react-icons/md";
+import { MdPlaylistAdd } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import { useAuth, useVideos } from "../../contexts";
+import { useAuth } from "../../contexts";
+import { AiFillDelete } from "react-icons/ai";
 
-const PlaylistButton = () => {
+const PlaylistButton = ({ video, playlistCard, playlistId }) => {
   const navigate = useNavigate();
   const {
-    userState: { playlists, isLoggedIn },
+    userState: { isLoggedIn },
+    handlePlaylistModal,
+    deleteVideoFromPlaylist,
   } = useAuth();
 
-  const handlePlaylistAction = (video) => {
-    console.log("playlist");
+  const handlePlaylistAction = () => {
+    if (!isLoggedIn) {
+      navigate("/login");
+      return;
+    }
+    playlistCard
+      ? deleteVideoFromPlaylist(playlistId, video._id)
+      : handlePlaylistModal(true, video, false);
   };
-  const {
-    videosState: { currVideo },
-  } = useVideos();
   return (
-    <button className="btn-transparent">
-      <MdPlaylistAdd color="white" size={"1.2rem"} />
+    <button
+      onClick={handlePlaylistAction}
+      data-tip={playlistCard ? "Delete From Playlist" : "Add to Playlist"}
+      className="btn-transparent"
+    >
+      {playlistCard ? (
+        <AiFillDelete color="#dc2626" size={"1.2rem"} />
+      ) : (
+        <MdPlaylistAdd color="white" size={"1.2rem"} />
+      )}
     </button>
   );
 };

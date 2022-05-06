@@ -1,8 +1,8 @@
-import { createContext, useContext, useReducer, useEffect } from "react";
+import { createContext, useContext, useReducer } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { callAPI, capitalize } from "../../app-utils";
-import { initialUserState, userReducer } from "./user-utils";
+import { initialUserState, userReducer, initialModalState } from "./user-utils";
 
 const AuthContext = createContext(initialUserState);
 
@@ -260,6 +260,122 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  const getAllPlaylists = async () => {
+    try {
+      const {
+        data: { playlists },
+      } = await callAPI(
+        "GET",
+        "/api/user/playlists",
+        null,
+        userDetails?.encodedToken
+      );
+      userDispatch({ type: "ALL_PLAYLISTS", payload: playlists });
+    } catch (error) {
+      toast.error("Could not retrieve playlist information");
+    }
+  };
+
+  const createPlaylist = async (title, description) => {
+    try {
+      const {
+        data: { playlists },
+      } = await callAPI(
+        "POST",
+        "/api/user/playlists",
+        {
+          playlist: { title: title, description: description },
+        },
+        userDetails?.encodedToken
+      );
+      userDispatch({ type: "ALL_PLAYLISTS", payload: playlists });
+      toast.success(`Added ${title} - Playlist successfully!`);
+    } catch (error) {
+      toast.error("Could not create the playlist");
+    }
+  };
+
+  const deletePlaylist = async (_id) => {
+    try {
+      const {
+        data: { playlists },
+      } = await callAPI(
+        "DELETE",
+        `/api/user/playlists/${_id}`,
+        null,
+        userDetails?.encodedToken
+      );
+      userDispatch({ type: "ALL_PLAYLISTS", payload: playlists });
+      navigate("/playlists");
+      toast.success(`Deleted Playlist successfully!`);
+    } catch (error) {
+      toast.error("Could not delete the playlist");
+    }
+  };
+
+  const getPlaylist = async (_id) => {
+    try {
+      const {
+        data: { playlist },
+      } = await callAPI(
+        "GET",
+        `/api/user/playlists/${_id}`,
+        null,
+        userDetails?.encodedToken
+      );
+      userDispatch({ type: "SINGLE_PLAYLIST", payload: playlist });
+    } catch (error) {
+      toast.error("Could not retrieve the playlist");
+    }
+  };
+
+  const addVideoToPlaylist = async (_id, video) => {
+    try {
+      const {
+        data: { playlist },
+      } = await callAPI(
+        "POST",
+        `/api/user/playlists/${_id}`,
+        { video: video },
+        userDetails?.encodedToken
+      );
+
+      userDispatch({ type: "ADD_TO_PLAYLIST", payload: playlist });
+      toast.success("Video added to playlist successfully");
+    } catch (error) {
+      toast.error("Error uploading video");
+    }
+  };
+
+  const deleteVideoFromPlaylist = async (playlistId, videoId) => {
+    try {
+      const {
+        data: { playlist },
+      } = await callAPI(
+        "DELETE",
+        `/api/user/playlists/${playlistId}/${videoId}`,
+        null,
+        userDetails?.encodedToken
+      );
+      userDispatch({ type: "DELETE_FROM_PLAYLIST", payload: playlist });
+      userDispatch({ type: "SINGLE_PLAYLIST", payload: playlist });
+      toast.success("Deleted Video From Playlist");
+    } catch (error) {
+      toast.error("Could not delete video from Playlist");
+    }
+  };
+
+  const handlePlaylistModal = (open, video, fromPlaylist) => {
+    userDispatch({
+      type: "PLAYLIST_MODAL",
+      payload: {
+        openModal: open,
+        video: video,
+        fromPlaylist: fromPlaylist,
+      },
+    });
+  };
+
   const value = {
     userState,
     userDispatch,
@@ -276,7 +392,15 @@ const AuthProvider = ({ children }) => {
     emptyHistory,
     addToWatchLater,
     removeFromWatchLater,
+    getAllPlaylists,
+    createPlaylist,
+    deletePlaylist,
+    getPlaylist,
+    addVideoToPlaylist,
+    deleteVideoFromPlaylist,
+    handlePlaylistModal,
     testUser,
+    initialModalState,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
