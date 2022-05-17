@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { constants } from "../../app-utils";
 import { EmptyData, HorizontalCard } from "../../components";
 import { useAuth } from "../../contexts";
@@ -8,13 +8,7 @@ import "./LikedVideos.css";
 const LikedVideos = () => {
   const {
     userState: { likedVideos },
-    getAllLikedVideos,
   } = useAuth();
-
-  useEffect(() => {
-    likedVideos?.length === 0 && getAllLikedVideos();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const { titles } = constants;
   useDocumentTitle(titles.liked());
@@ -24,7 +18,7 @@ const LikedVideos = () => {
       <p className=" title">{`Liked Videos ${
         likedVideos?.length > 0 ? `- ${likedVideos?.length}` : ""
       }`}</p>
-      {likedVideos?.length === 0 ? (
+      {!likedVideos || likedVideos.length === 0 ? (
         <EmptyData
           msg={"You didn't like any videos from us!"}
           url={"/explore"}

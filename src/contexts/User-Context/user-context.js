@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { callAPI, capitalize } from "../../app-utils";
@@ -85,6 +85,9 @@ const AuthProvider = ({ children }) => {
   };
 
   const getAllLikedVideos = async () => {
+    if (!userState.isLoggedIn || !userDetails) {
+      return;
+    }
     try {
       const {
         data: { likes },
@@ -261,6 +264,9 @@ const AuthProvider = ({ children }) => {
   };
 
   const getAllPlaylists = async () => {
+    if (userState.isLoggedIn && !userState.enableHistory) {
+      return;
+    }
     try {
       const {
         data: { playlists },
@@ -375,6 +381,13 @@ const AuthProvider = ({ children }) => {
       },
     });
   };
+
+  useEffect(() => {
+    getAllLikedVideos();
+    getAllPlaylists();
+    getUserWatchLater();
+    getUserHistory();
+  }, []);
 
   const value = {
     userState,
