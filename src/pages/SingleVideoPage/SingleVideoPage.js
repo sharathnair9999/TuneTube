@@ -104,7 +104,7 @@ const SingleVideoPage = () => {
             <div className="video-actions ml-auto">
               <Like video={currVideo} />
               <WatchLaterButton video={currVideo} />
-              <PlaylistButton />
+              <PlaylistButton video={currVideo} />
             </div>
           </div>
         </div>
