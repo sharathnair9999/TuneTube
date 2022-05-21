@@ -47,9 +47,6 @@ And now this application runs in your local machine too.
 
 # Features
 
-- Landing Page (Lazy Loading)  - Public Route
-	- Video Categories
-	- 
 - Authentication: 
     - User Signup 
     - User Login (Email, Password || Test User)
@@ -58,6 +55,8 @@ And now this application runs in your local machine too.
     - Public Routes
 
 ### Public Routes
+- Landing Page (Lazy Loading)
+	- Video Categories
 - Video Listing Page
 	- Landing Page
 	- Video Card with Video title, Video Actions(Add to Likes, Watch Later, Playlist)
