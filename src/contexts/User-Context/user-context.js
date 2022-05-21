@@ -264,7 +264,10 @@ const AuthProvider = ({ children }) => {
   };
 
   const getAllPlaylists = async () => {
-    if (userState.isLoggedIn && !userState.enableHistory) {
+    if (
+      !userState.isLoggedIn ||
+      (userState.isLoggedIn && !userState.enableHistory)
+    ) {
       return;
     }
     try {
@@ -320,6 +323,9 @@ const AuthProvider = ({ children }) => {
   };
 
   const getPlaylist = async (_id) => {
+    if (!userState.isLoggedIn) {
+      return;
+    }
     try {
       const {
         data: { playlist },
