@@ -9,7 +9,7 @@ const EmptyData = ({ msg, imgUrl = constants.imgUrls.empty_box, url = "" }) => {
       <img src={imgUrl} alt="empty-box " className="responsive-img" />
       <p className="msg-text">{msg}</p>
       {url !== "" && (
-        <Link className="mt-1 link" to={url}>
+        <Link className="mt-1 link" to={url} replace={true}>
           Explore All Videos
         </Link>
       )}

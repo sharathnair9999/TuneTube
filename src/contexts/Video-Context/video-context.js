@@ -8,7 +8,7 @@ import {
   getThumbnail,
 } from "./video-utils";
 import { toast } from "react-toastify";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const VideosContext = createContext(initialVideosState);
 
@@ -17,6 +17,8 @@ const VideosProvider = ({ children }) => {
     videosReducer,
     initialVideosState
   );
+
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const getAllVideos = async () => {
@@ -42,6 +44,7 @@ const VideosProvider = ({ children }) => {
       videosDispatch({ type: "GET_VIDEO", payload: video });
       videosDispatch({ type: "LOADING_CURR_VIDEO", payload: false });
     } catch (error) {
+      navigate("/invalid-page");
       videosDispatch({ type: "LOADING_CURR_VIDEO", payload: false });
       toast.error("Could not fetch the video");
     }
