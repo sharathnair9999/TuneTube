@@ -15,7 +15,13 @@ import {
 } from "./pages";
 
 import { RedirectLoggedInUser, RequireAuth } from "./contexts";
-import { Footer, NavBar, PlaylistModal, SplashScreen } from "./components";
+import {
+  EmptyData,
+  Footer,
+  NavBar,
+  PlaylistModal,
+  SplashScreen,
+} from "./components";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PlaylistLanding from "./pages/Playlist/PlaylistLanding";
@@ -50,6 +56,12 @@ function App() {
           <Route path="explore">
             <Route index element={<VideoListing />} />
             <Route path=":videoId" element={<SingleVideoPage />} />
+            <Route
+              path="*"
+              element={
+                <EmptyData msg={"This Page Does not Exist"} url="/explore" />
+              }
+            />
           </Route>
           <Route
             path="login"
@@ -102,7 +114,18 @@ function App() {
             <Route index element={<PlaylistLanding />} />
             <Route path=":playlistId" element={<PlaylistVideos />} />
           </Route>
-          <Route path="*" element={<ErrorPage />} />
+          <Route
+            path="*"
+            element={
+              <EmptyData msg={"This Page Does not Exist"} url="/explore" />
+            }
+          />
+          <Route
+            path="invalid-page"
+            element={
+              <EmptyData msg={"This Page Does not Exist"} url="/explore" />
+            }
+          />
         </Routes>
         {(pathname === "/" || pathname === "/explore") && <Footer />}
       </div>

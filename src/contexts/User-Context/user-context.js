@@ -337,6 +337,7 @@ const AuthProvider = ({ children }) => {
       );
       userDispatch({ type: "SINGLE_PLAYLIST", payload: playlist });
     } catch (error) {
+      navigate("/invalid-page");
       toast.error("Could not retrieve the playlist");
     }
   };
