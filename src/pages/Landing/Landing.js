@@ -14,7 +14,7 @@ const Landing = () => {
         <img
           src={constants.imgUrls.landing_hero_img}
           alt="hero landing"
-          className="responsive-img"
+          className="responsive-img object-cover"
         />
         <div className="landing-content">
           <p className="landing-text">

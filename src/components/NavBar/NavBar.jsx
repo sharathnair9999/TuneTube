@@ -68,7 +68,7 @@ const NavBar = () => {
         <img
           src={constants.imgUrls.logo}
           alt="unbox tube"
-          className="responsive-img logo-img"
+          className="responsive-img logo-img object-cover"
         />
         <span className="logo-text">
           <span className="word word-1">UnboxTube</span>

@@ -95,6 +95,10 @@
   width: 100%;
 }
 
+.next-videos::-webkit-scrollbar {
+  display: none;
+}
+
 .horizontal-video-card {
   max-width: 25rem;
 }
@@ -134,7 +138,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .video-actions{
+  .video-actions {
     gap: 0px;
   }
   .video-actions button {

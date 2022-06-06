@@ -16,7 +16,11 @@ const CategoryCard = ({ category }) => {
       onClick={() => moveToExplore(categoryName)}
     >
       <p className="category-title">{categoryName}</p>
-      <img src={thumbnail} alt={categoryName} className="category-img" />
+      <img
+        src={thumbnail}
+        alt={categoryName}
+        className="category-img object-cover"
+      />
       <p className="category-description">{description}</p>
     </div>
   );
