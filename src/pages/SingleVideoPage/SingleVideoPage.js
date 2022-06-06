@@ -120,7 +120,7 @@ const SingleVideoPage = () => {
                   <img
                     src={getThumbnail(video._id)}
                     alt={video.title}
-                    className="responsive-img"
+                    className="responsive-img object-cover"
                   />
                 </Link>
                 <div className="card-details flex-col flex justify-fs items-fs">

@@ -11,10 +11,18 @@ const VideoCard = ({ video }) => {
   return (
     <div className="video-card">
       <Link to={`./${_id}`}>
-        <img className="thumbnail" src={getThumbnail(_id)} alt={title} />
+        <img
+          className="thumbnail object-cover"
+          src={getThumbnail(_id)}
+          alt={title}
+        />
       </Link>
       <div className="video-card-details">
-        <img src={creatorImg} alt="creator" className="creator-img" />
+        <img
+          src={creatorImg}
+          alt="creator"
+          className="creator-img object-cover"
+        />
         <section className="video-card-text">
           <p className="card-title">{title}</p>
           <small className="creator-name">{creator}</small>

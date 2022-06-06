@@ -8,6 +8,7 @@
   max-width: 18rem;
   transition: all 0.2s ease-in-out;
   margin: 0 9px 0 0;
+  object-fit: cover;
 }
 
 .like-card .card-text .card-title {

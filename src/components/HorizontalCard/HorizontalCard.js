@@ -22,7 +22,11 @@ const HorizontalCard = ({
     <div className="like-card flex justify-center items-fs px-1">
       <span className="pr-1 serial-no pt-1">{sNo + 1}</span>
       <Link to={`/explore/${_id}`}>
-        <img src={thumbnai} alt={title} className="responsive-img thumbnail" />
+        <img
+          src={thumbnai}
+          alt={title}
+          className="responsive-img thumbnail object-cover"
+        />
       </Link>
       <div className="card-text">
         <p className="card-title">
@@ -34,7 +38,7 @@ const HorizontalCard = ({
           <img
             src={creatorImg}
             alt={creator}
-            className="creator-img responsive-img"
+            className="creator-img responsive-img object-cover"
           />
           <small>{creator}</small>
         </section>
