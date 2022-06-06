@@ -11,8 +11,8 @@ const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const testUser = {
-    email: "adarshbalika@gmail.com",
-    password: "adarshBalika123",
+    email: "chandlerbing@friends.com",
+    password: "chandlerbing",
   };
 
   const userDetails = JSON.parse(localStorage.getItem("userToken")) || {
