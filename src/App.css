@@ -24,17 +24,10 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   color: var(--font-white-100);
   background-color: var(--bg-primary-100);
   transition: all 0.2s ease-in-out;
-}
-
-.main-container {
-  flex-grow: 1;
-  overflow-y: auto;
-  margin-top: 3rem;
-  padding: 20px 10px;
 }
 
 a {
@@ -66,6 +59,11 @@ ul li {
 ::-webkit-scrollbar-thumb {
   background-color: var(--font-white-100);
 }
+
+.main-container {
+  margin-top: 3rem;
+}
+
 @media screen and (max-width: 768px) {
   ::-webkit-scrollbar {
     width: 0;
@@ -78,7 +76,6 @@ ul li {
 
   .main-container {
     padding: 0;
-    height: calc(100vh - 5rem);
   }
 }
 

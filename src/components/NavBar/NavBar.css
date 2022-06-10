@@ -1,12 +1,12 @@
 .open-btn-section {
   height: 3rem;
-  width: 100%;
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding: 0.5rem 1rem;
-  border-bottom: 1px solid var(--font-white-500);
+  z-index: 11;
+  /* border-bottom: 1px solid var(--font-white-500); */
   background-color: var(--bg-primary-100);
 }
 
@@ -90,10 +90,10 @@
 }
 
 .navbar {
-  z-index: 1;
+  z-index: 11;
   background-color: var(--black-transparent-1);
   height: calc(100%);
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
 }
@@ -154,14 +154,15 @@
   }
 
   .navbar {
-    position: sticky;
+    position: fixed;
     left: 0;
     right: 0;
+    top: calc(100vh - 3.5rem);
     height: 2rem;
     width: 100%;
     height: max-content;
     transform: translateX(0);
-    background-color: var(--black-transparent-2);
+    background-color: var(--black-transparent-1);
   }
 
   .navbar nav .options {
@@ -187,4 +188,14 @@
     font-size: 1.4rem;
     line-height: 1.4rem;
   }
+}
+
+.navbar-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background-color: var(--bg-primary-100);
+  height: 3rem;
 }
