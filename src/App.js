@@ -26,6 +26,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PlaylistLanding from "./pages/Playlist/PlaylistLanding";
 import PlaylistVideos from "./pages/Playlist/PlaylistVideos";
+import SideNav from "./components/NavBar/SideNav";
 const LazyLanding = React.lazy(() => import("./pages/Landing/Landing"));
 
 function App() {
@@ -42,8 +43,9 @@ function App() {
     <div className="App">
       <ToastContainer autoClose={2000} />
       <NavBar />
+      <SideNav />
+      <PlaylistModal />
       <div className="main-container" ref={mainContainerRef}>
-        <PlaylistModal />
         <Routes>
           <Route
             path="/"
