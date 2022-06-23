@@ -1,5 +1,4 @@
 import React from "react";
-import "./UserAvatar.css";
 import ReactTooltip from "react-tooltip";
 import { FaUserCircle } from "react-icons/fa";
 
