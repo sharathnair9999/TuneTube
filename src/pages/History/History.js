@@ -1,15 +1,12 @@
 import React from "react";
-import { toast } from "react-toastify";
 import { constants } from "../../app-utils";
 import { EmptyData, HorizontalCard } from "../../components";
 import { useAuth } from "../../contexts";
 import { useDocumentTitle } from "../../custom-hooks";
-import "./History.css";
 
 const History = () => {
   const {
-    userState: { history, enableHistory },
-    userDispatch,
+    userState: { history },
     emptyHistory,
   } = useAuth();
 
@@ -29,22 +26,6 @@ const History = () => {
           >
             Clear History
           </button>
-          <label className="switch">
-            <input
-              type="checkbox"
-              checked={enableHistory}
-              onChange={(e) => {
-                userDispatch({
-                  type: "ENABLE_HISTORY",
-                  payload: e.target.checked,
-                });
-                e.target.checked
-                  ? toast.success("Your History has been enabled!")
-                  : toast.success("You Disabled History");
-              }}
-            />
-            <span className="slider round"></span>
-          </label>
         </section>
       </div>
       {history.length === 0 ? (

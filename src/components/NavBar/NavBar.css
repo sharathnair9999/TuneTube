@@ -1,6 +1,7 @@
 .open-btn-section {
   height: 3rem;
   position: fixed;
+  top: 0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
