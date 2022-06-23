@@ -15,7 +15,7 @@ export const initialUserState = {
   watchlater: [],
   history: [],
   playlists: [],
-  enableHistory: false,
+
   playlist: {},
   playlistModalState: initialModalState,
 };
@@ -52,11 +52,7 @@ export const userReducer = (state, action) => {
       };
     case "HISTORY":
       return { ...state, history: payload };
-    case "ENABLE_HISTORY":
-      return {
-        ...state,
-        enableHistory: payload,
-      };
+
     case "WATCH_LATER":
       return { ...state, watchlater: payload };
     case "ALL_PLAYLISTS":
