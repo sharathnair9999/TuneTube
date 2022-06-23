@@ -1,3 +1,4 @@
+
 import { createContext, useContext, useReducer, useEffect } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -175,9 +176,6 @@ const AuthProvider = ({ children }) => {
   };
 
   const addToHistory = async (video) => {
-    if (userState.isLoggedIn && !userState.enableHistory) {
-      return;
-    }
     try {
       const {
         data: { history },
@@ -264,10 +262,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const getAllPlaylists = async () => {
-    if (
-      !userState.isLoggedIn ||
-      (userState.isLoggedIn && !userState.enableHistory)
-    ) {
+    if (!userState.isLoggedIn) {
       return;
     }
     try {
@@ -286,6 +281,10 @@ const AuthProvider = ({ children }) => {
   };
 
   const createPlaylist = async (title, description) => {
+    if (userState.playlists.some((playlist) => playlist.title === title)) {
+      toast.error("Playlist with that name already exists");
+      return;
+    }
     try {
       const {
         data: { playlists },
@@ -315,7 +314,6 @@ const AuthProvider = ({ children }) => {
         userDetails?.encodedToken
       );
       userDispatch({ type: "ALL_PLAYLISTS", payload: playlists });
-      navigate("/playlists");
       toast.success(`Deleted Playlist successfully!`);
     } catch (error) {
       toast.error("Could not delete the playlist");
@@ -394,6 +392,7 @@ const AuthProvider = ({ children }) => {
     getAllPlaylists();
     getUserWatchLater();
     getUserHistory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const value = {
