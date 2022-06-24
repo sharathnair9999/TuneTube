@@ -12,7 +12,9 @@ export const videos = [
     creator: "Marques Brownlee",
     uploadedOn: " Sep 23, 2020",
     category: "Review",
-    creatorImg:"https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/mkbhd_pohpi2.jpg"
+    duration: "16:21",
+    creatorImg:
+      "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/mkbhd_pohpi2.jpg",
   },
   {
     _id: "f4g2nPY-VZc",
@@ -22,7 +24,9 @@ export const videos = [
     creator: "Marques Brownlee",
     uploadedOn: "Nov 17, 2020",
     category: "Review",
-    creatorImg:"https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/mkbhd_pohpi2.jpg"
+    duration: "14:31",
+    creatorImg:
+      "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/mkbhd_pohpi2.jpg",
   },
   {
     _id: "788E-ATJ3pk",
@@ -31,8 +35,10 @@ export const videos = [
       "With iPhone 11 / iPhone 11 Pro upon us, welcome to the Ultimate iPhone Unboxing + Camera, Speed, and Display Comparison reviews!",
     creator: "Mrwhosetheboss",
     uploadedOn: "Oct 5, 2019",
+    duration: "24:02",
     category: "Testing",
-    creatorImg:"https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/mrwhosetheboss_zvjy4x.jpg"
+    creatorImg:
+      "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/mrwhosetheboss_zvjy4x.jpg",
   },
   {
     _id: "UdfSrJvqY_E",
@@ -42,7 +48,9 @@ export const videos = [
     creator: "Marques Brownlee",
     uploadedOn: "Dec 10, 2020",
     category: "Unboxing",
-    creatorImg:"https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/mkbhd_pohpi2.jpg"
+    duration: "11:52",
+    creatorImg:
+      "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/mkbhd_pohpi2.jpg",
   },
   {
     _id: "zDG-n8JN_78",
@@ -51,8 +59,10 @@ export const videos = [
       "You'll see lots of smartphone unboxings in 2021 - Samsung Galaxy unboxings, iPhone 13 / 12s unboxings etc, but none will compare to the ridiculousness of this $200,000 smartphone unboxing. ",
     creator: "Mrwhosetheboss",
     uploadedOn: "Apr 29, 2021",
+    duration: "20:50",
     category: "Unboxing",
-    creatorImg:"https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/mrwhosetheboss_zvjy4x.jpg"
+    creatorImg:
+      "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/mrwhosetheboss_zvjy4x.jpg",
   },
   {
     _id: "wGk8du2VVCs",
@@ -61,8 +71,10 @@ export const videos = [
       "How bad can a smartphone be in 2020?  How Good can a smartphone be in 2020? Let's find out. ",
     creator: "Mrwhosetheboss",
     uploadedOn: "Jul 5, 2020",
+    duration: "12:44",
     category: "Testing",
-    creatorImg:"https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/mrwhosetheboss_zvjy4x.jpg"
+    creatorImg:
+      "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/mrwhosetheboss_zvjy4x.jpg",
   },
   {
     _id: "7eQG8mRlYHM",
@@ -71,8 +83,10 @@ export const videos = [
       "The Galaxy Note 20 Ultra is the first smartphone to use Gorilla Glass Victus on the display... And its time we find out how scratch resistant that new Victus Glass really is. Is this new Note 20 Ultra worth the Ultra price? ",
     creator: "JerryRigEverything",
     uploadedOn: "Aug 17, 2020",
+    duration: "09:21",
     category: "Testing",
-    creatorImg:"https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/jerry_iuvy1m.jpg"
+    creatorImg:
+      "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/jerry_iuvy1m.jpg",
   },
   {
     _id: "Dqi9QGyRWGk",
@@ -80,9 +94,12 @@ export const videos = [
     description:
       "The ROG phone 5 is a pretty expensive and powerful gaming smartphone. Its lost the iconic aerodynamic hump from the previous 3 versions of the phone, and now the ROG 5 has added dual batteries so it can charge faster. But will that compromise the Structural integrity of the ROG 5? I mean... yeah. You've seen the thumbnail. The ROG Phone five definitely has some structural issues....",
     creator: "JerryRigEverything",
+    duration: "09:54",
+
     uploadedOn: "Mar 17, 2021",
     category: "Testing",
-    creatorImg:"https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/jerry_iuvy1m.jpg"
+    creatorImg:
+      "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/jerry_iuvy1m.jpg",
   },
   {
     _id: "sCPq9Jwgfvg",
@@ -92,7 +109,9 @@ export const videos = [
     creator: "Beebom",
     uploadedOn: "Apr 9, 2022",
     category: "Unboxing",
-    creatorImg:"https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/beebom_urjepc.jpg"
+    duration: "09:05",
+    creatorImg:
+      "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/beebom_urjepc.jpg",
   },
   {
     _id: "ZnZ5IuhhIIs",
@@ -102,7 +121,9 @@ export const videos = [
     creator: "Beebom",
     uploadedOn: "Apr 13, 2021",
     category: "Review",
-    creatorImg:"https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/beebom_urjepc.jpg"
+    duration: "09:51",
+    creatorImg:
+      "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/beebom_urjepc.jpg",
   },
   {
     _id: "T8AS4gWDPqU",
@@ -111,8 +132,10 @@ export const videos = [
       " The new Dell XPS 13 was announced at CES 2018 and it's here. This is not the Dell XPS 13 review, instead we take a quick look at the Dell XPS 13 and its beautiful 4K display. ",
     creator: "Beebom",
     uploadedOn: "Apr 21, 2018",
+    duration: "07:53",
     category: "Unboxing",
-    creatorImg:"https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/beebom_urjepc.jpg"
+    creatorImg:
+      "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/beebom_urjepc.jpg",
   },
   {
     _id: "IrcQh9JLJwI",
@@ -121,8 +144,10 @@ export const videos = [
       "ASUS has launched the new ZenBook 14 Flip OLED 2022 in India that is powered by AMD chipsets and has features like a 2.8K 90Hz OLED display with stylus support. In this video, we take a look at this new 2 in 1 convertible from ASUS and tell you if it makes sense. The new ZenBook 14 Flip OLED starts at Rs. ₹91,990 and the variant we have costs ₹1,34,990.",
     creator: "Beebom",
     uploadedOn: "Mar 21, 2022",
+    duration: "06:31",
     category: "Unboxing",
-    creatorImg:"https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/beebom_urjepc.jpg"
+    creatorImg:
+      "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/beebom_urjepc.jpg",
   },
   {
     _id: "IDcyXtweHCw",
@@ -131,7 +156,9 @@ export const videos = [
     creator: "Marques Brownlee",
     uploadedOn: "Dec 23, 2021",
     category: "Awards",
-    creatorImg:"https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/mkbhd_pohpi2.jpg"
+    duration: "25:38",
+    creatorImg:
+      "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/mkbhd_pohpi2.jpg",
   },
   {
     _id: "drFYuuwCTiw",
@@ -140,6 +167,7 @@ export const videos = [
       "The results of the Indian Gadget Awards 2020 - The voice of the Indian tech Industry. results from over 22 categories and not to forget the user choice awards on which you guys voted.  This was a huge cumulative effort from the Indian Tech Industry and I thank all of you who participated in the same.",
     creator: "Geekyranjit",
     uploadedOn: "Jan 15, 2021",
+    duration: "10:27",
     category: "Awards",
     creatorImg:
       "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/geekyranjit_wdcb5i.jpg",
@@ -152,6 +180,7 @@ export const videos = [
     creator: "Geekyranjit",
     uploadedOn: "Feb 8, 2022",
     category: "Review",
+    duration: "18:03",
     creatorImg:
       "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/geekyranjit_wdcb5i.jpg",
   },
@@ -162,6 +191,7 @@ export const videos = [
     creator: "Unbox Therapy",
     uploadedOn: "Apr 19, 2022",
     category: "Unboxing",
+    duration: "11:56",
     creatorImg:
       "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/unbox_therapy_drlc8o.jpg",
   },
@@ -173,6 +203,7 @@ export const videos = [
     creator: "Unbox Therapy",
     uploadedOn: "Feb 23, 2022",
     category: "Unboxing",
+    duration: "08:50",
     creatorImg:
       "https://res.cloudinary.com/sharath-media-library/image/upload/v1651072403/unbox%20tube/unbox_therapy_drlc8o.jpg",
   },

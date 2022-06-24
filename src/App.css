@@ -22,7 +22,7 @@
 
 .App {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   min-height: 100vh;
   color: var(--font-white-100);
@@ -59,7 +59,6 @@ ul li {
 ::-webkit-scrollbar-thumb {
   background-color: var(--font-white-100);
 }
-
 .main-container {
   margin-top: 3rem;
 }
@@ -70,7 +69,6 @@ ul li {
     height: 2px;
   }
   .App {
-    flex-direction: column-reverse;
     gap: 0;
   }
 

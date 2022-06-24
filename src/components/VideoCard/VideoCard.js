@@ -1,22 +1,25 @@
 import "./VideoCard.css";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useVideos } from "../../contexts";
 import VideoActionSection from "../VideoActions/VideoActionSection";
 
 const VideoCard = ({ video }) => {
-  const { _id, title, creator, creatorImg } = video;
+  const { _id, title, creator, creatorImg, duration } = video;
+  const navigate = useNavigate();
 
   const { getThumbnail } = useVideos();
   return (
     <div className="video-card">
-      <Link to={`./${_id}`}>
+      <div className="relative-container">
         <img
-          className="thumbnail object-cover"
+          className="thumbnail object-cover pointer"
+          onClick={() => navigate(`'./${_id}`)}
           src={getThumbnail(_id)}
           alt={title}
         />
-      </Link>
+        <span className="duration">{duration}</span>
+      </div>
       <div className="video-card-details">
         <img
           src={creatorImg}
