@@ -14,7 +14,7 @@ const VideoCard = ({ video }) => {
       <div className="relative-container">
         <img
           className="thumbnail object-cover pointer"
-          onClick={() => navigate(`'./${_id}`)}
+          onClick={() => navigate(`./${_id}`)}
           src={getThumbnail(_id)}
           alt={title}
         />

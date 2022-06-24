@@ -129,3 +129,19 @@ ul li {
 .object-cover {
   object-fit: cover;
 }
+
+.duration {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-weight: 500;
+  font-size: 12px;
+  margin: 0 2px 8px 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.relative-container {
+  position: relative;
+}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./SingleVideoPage.css";
 import ReactPlayer from "react-player";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useAuth, useVideos } from "../../contexts";
 import { useDocumentTitle } from "../../custom-hooks";
 import { constants } from "../../app-utils";
@@ -15,6 +15,7 @@ import {
 } from "../../components";
 
 const SingleVideoPage = () => {
+  const navigate = useNavigate();
   const { videoId } = useParams();
   const { titles } = constants;
   const [expanded, setExpanded] = useState(false);
@@ -116,13 +117,15 @@ const SingleVideoPage = () => {
                 key={video._id}
                 className="horizontal-video-card flex items-fs justify-fs gap-sm"
               >
-                <Link to={`/explore/${video._id}`}>
+                <div className="relative-container">
                   <img
+                    onClick={() => navigate(`/explore/${video._id}`)}
                     src={getThumbnail(video._id)}
                     alt={video.title}
                     className="responsive-img object-cover"
                   />
-                </Link>
+                  <span className="duration">{video.duration}</span>
+                </div>
                 <div className="card-details flex-col flex justify-fs items-fs">
                   <ReactTooltip place="top" effect="solid" />
                   <p className="video-title">

@@ -3,7 +3,7 @@ import "./HorizontalCard.css";
 import React from "react";
 import { useVideos } from "../../contexts";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import VideoActionSection from "../VideoActions/VideoActionSection";
 
 const HorizontalCard = ({
@@ -16,18 +16,21 @@ const HorizontalCard = ({
   playlistId,
 }) => {
   const { getThumbnail } = useVideos();
-  const { _id, title, creator, creatorImg } = video;
+  const { _id, title, creator, creatorImg, duration } = video;
   const thumbnai = getThumbnail(_id);
+  const navigate = useNavigate();
   return (
     <div className="like-card flex justify-center items-fs px-1">
       <span className="pr-1 serial-no pt-1">{sNo + 1}</span>
-      <Link to={`/explore/${_id}`}>
+      <div className="relative-container">
         <img
           src={thumbnai}
           alt={title}
-          className="responsive-img thumbnail object-cover"
+          onClick={() => navigate(`/explore/${_id}`)}
+          className="responsive-img thumbnail object-cover pointer"
         />
-      </Link>
+        <span className="duration">{duration}</span>
+      </div>
       <div className="card-text">
         <p className="card-title">
           <Link className="w-100" to={`/explore/${_id}`}>
