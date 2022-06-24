@@ -1,6 +1,6 @@
 import React from "react";
 import ReactTooltip from "react-tooltip";
-import { FaUserCircle } from "react-icons/fa";
+import { FiLogOut } from "react-icons/fi";
 
 const UserAvatar = ({ logoutUser }) => {
   return (
@@ -11,7 +11,7 @@ const UserAvatar = ({ logoutUser }) => {
         data-tip="Logout"
         onClick={() => logoutUser()}
       >
-        <FaUserCircle />
+        <FiLogOut />
       </span>
     </div>
   );

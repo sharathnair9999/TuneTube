@@ -74,12 +74,13 @@ const PlaylistModal = () => {
               className="each-playlist font-md-1 flex items-center justify-fs gap-sm w-100"
             >
               <input
+                id="playlist-checker"
                 type="checkbox"
                 onChange={() => handlePlaylist(playlist)}
                 checked={isInAPlaylist(playlist)}
               />
 
-              <span>{playlist.title}</span>
+              <label htmlFor="playlist-checker">{playlist.title}</label>
               <button
                 onClick={() => deletePlaylist(playlist._id)}
                 className="ml-auto btn-transparent"
