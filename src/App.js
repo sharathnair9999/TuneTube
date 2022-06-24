@@ -12,7 +12,7 @@ import {
   WatchLater,
 } from "./pages";
 
-import { RedirectLoggedInUser, RequireAuth } from "./contexts";
+import { RedirectLoggedInUser, RequireAuth, useAuth } from "./contexts";
 import {
   EmptyData,
   Footer,
@@ -33,10 +33,23 @@ function App() {
   const scrollToTop = () => {
     mainContainerRef.current.scroll(0, 0);
   };
-
+  const {
+    userState: {
+      playlistModalState: { openModal },
+    },
+  } = useAuth();
   useEffect(() => {
     scrollToTop();
   }, [pathname]);
+
+  useEffect(() => {
+    if (openModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [openModal]);
+
   return (
     <div className="App">
       <ToastContainer autoClose={2000} />

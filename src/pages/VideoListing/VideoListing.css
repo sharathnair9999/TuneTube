@@ -1,5 +1,4 @@
 .video-listing-container {
-  min-height: 100vh;
   padding: 10px;
 }
 
@@ -37,24 +36,24 @@
   margin-bottom: 1rem;
 }
 
-.sort-items{
+.sort-items {
   gap: 10px;
   padding: 10px 16px;
 }
 
 @media screen and (max-width: 768px) {
   .date-sort,
-   .chip {
+  .chip {
     font-size: 10px;
   }
-  
+
   .categories-chip-container {
     gap: 5px;
   }
   .video-listing {
     grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
   }
-  .sort-items{
+  .sort-items {
     gap: 5px;
     padding: 5px 8px;
   }

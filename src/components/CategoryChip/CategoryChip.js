@@ -7,9 +7,10 @@ const CategoryChip = ({ category }) => {
 
   const filterByCategory = searchParams.get("category") || "All";
   const sort = searchParams.get("sort") || "LATEST";
+  const search = searchParams.get("search") || "";
 
   const selectCategory = (cat) => {
-    setSearchParams({ category: cat, sort: sort });
+    setSearchParams({ category: cat, sort: sort, search });
   };
 
   return (

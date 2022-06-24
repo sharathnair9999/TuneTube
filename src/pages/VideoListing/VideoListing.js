@@ -24,8 +24,9 @@ const VideoListing = () => {
 
   const category = searchParams.get("category") || "All";
   const sort = searchParams.get("sort") || "LATEST";
+  const search = searchParams.get("search") || "";
   const setSortBy = (e) => {
-    setSearchParams({ sort: e.target.value, category: category });
+    setSearchParams({ sort: e.target.value, category: category, search });
   };
 
   useEffect(() => {
@@ -35,6 +36,14 @@ const VideoListing = () => {
 
   const dateSortedVideos = sortVideos(allVideos, sort);
   const displayVideos = categorizedVideos(dateSortedVideos, category);
+  const searchVideos = displayVideos.filter((video) =>
+    search
+      ? video.category.toLowerCase().includes(search.toLowerCase()) ||
+        video.title.toLowerCase().includes(search.toLowerCase()) ||
+        video.description.toLowerCase().includes(search.toLowerCase()) ||
+        video.creator.toLowerCase().includes(search.toLowerCase())
+      : true
+  );
 
   return (
     <div className="video-listing-container">
@@ -60,11 +69,11 @@ const VideoListing = () => {
       <div className="video-listing">
         {allVideosLoading
           ? [...Array(8)].map((_, _id) => <SkeletalLoading key={_id} />)
-          : displayVideos?.map((video) => (
+          : searchVideos?.map((video) => (
               <VideoCard key={video._id} video={video} />
             ))}
       </div>
-      {displayVideos.length === 0 && <EmptyData msg={"No Videos Here"} />}
+      {searchVideos.length === 0 && <EmptyData msg={"No Videos Here"} />}
     </div>
   );
 };
