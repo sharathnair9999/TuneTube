@@ -53,4 +53,16 @@
     margin-top: 10px;
     gap: 8px;
   }
+  .scroll-down-btn {
+    display: none;
+  }
+}
+
+@keyframes jump {
+  0% {
+    bottom: 2rem;
+  }
+  100% {
+    bottom: 2.5rem;
+  }
 }

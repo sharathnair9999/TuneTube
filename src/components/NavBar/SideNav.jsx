@@ -55,9 +55,6 @@ const SideNav = () => {
         className={`${
           isComponentVisible ? "show-side-nav" : "hide-side-nav"
         } navbar`}
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
       >
         <nav>
           <section className="close-btn-section ">

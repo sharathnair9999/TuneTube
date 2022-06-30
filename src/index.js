@@ -16,6 +16,7 @@ ReactDOM.render(
         <AuthProvider>
           <React.Suspense fallback={<SplashScreen />}>
             <LazyApp />
+            {/* <SplashScreen /> */}
           </React.Suspense>
         </AuthProvider>
       </VideosProvider>

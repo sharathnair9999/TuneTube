@@ -140,7 +140,7 @@ function App() {
             }
           />
         </Routes>
-        {(pathname === "/" || pathname === "/explore") && <Footer />}
+        {(pathname === "/" || pathname === "explore") && <Footer />}
       </div>
     </div>
   );

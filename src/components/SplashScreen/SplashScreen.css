@@ -1,4 +1,14 @@
-.splash-screen-container{
+*,
+*::after,
+*::before,
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.splash-screen-container {
   height: 100vh;
   background-color: #1b1b1b;
   display: flex;
@@ -9,20 +19,20 @@
   padding: 0;
 }
 
-.splash-img{
+.splash-img {
   max-height: 50vh;
 }
 
-.splash-text{
+.splash-text {
   font-size: 5rem;
   font-weight: bold;
-  color: var(--font-white-100);
+  color: white;
   margin: 0;
   padding: 0;
 }
 
-@media screen and (max-width:768px) {
-  .splash-text{
+@media screen and (max-width: 768px) {
+  .splash-text {
     font-size: 3rem;
   }
 }

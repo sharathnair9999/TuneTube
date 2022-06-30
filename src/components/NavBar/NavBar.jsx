@@ -30,11 +30,8 @@ const NavBar = () => {
   };
   useEffect(() => {
     if (searchParams.get("search") && pathname !== "/explore") {
-      console.count("Rendering in condition");
       navigate("/explore");
       return;
-    } else {
-      console.count("Rendering outside");
     }
   }, [searchTerm, pathname, searchParams, navigate]);
 

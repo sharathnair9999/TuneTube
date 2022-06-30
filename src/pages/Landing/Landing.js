@@ -9,13 +9,8 @@ const Landing = () => {
   const { titles } = constants;
   useDocumentTitle(titles.landing);
   return (
-    <div>
+    <div id="landing" className="relative">
       <div className="landing-container">
-        <img
-          src={constants.imgUrls.landing_hero_img}
-          alt="hero landing"
-          className="responsive-img object-cover"
-        />
         <div className="landing-content">
           <p className="landing-text">
             This is the one place where you get to see your favourite gadgets
@@ -31,6 +26,11 @@ const Landing = () => {
             </Link>
           </div>
         </div>
+        <img
+          src={constants.imgUrls.landing_hero_img}
+          alt="hero landing"
+          className="responsive-img object-cover"
+        />
       </div>
       <Categories />
     </div>
