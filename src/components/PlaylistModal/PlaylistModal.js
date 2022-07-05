@@ -82,7 +82,7 @@ const PlaylistModal = () => {
 
               <label htmlFor="playlist-checker">{playlist.title}</label>
               <button
-                onClick={() => deletePlaylist(playlist._id)}
+                onClick={() => deletePlaylist(playlist._id, false)}
                 className="ml-auto btn-transparent"
               >
                 <AiFillDelete color="#dc2626" size={"1.2rem"} />

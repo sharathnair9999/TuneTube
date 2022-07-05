@@ -4,10 +4,14 @@ import "./Landing.css";
 import { Categories } from "../../components";
 import { constants } from "../../app-utils";
 import { useDocumentTitle } from "../../custom-hooks";
+import { useAuth } from "../../contexts";
 
 const Landing = () => {
   const { titles } = constants;
   useDocumentTitle(titles.landing);
+  const {
+    userState: { isLoggedIn },
+  } = useAuth();
   return (
     <div id="landing" className="relative">
       <div className="landing-container">
@@ -21,9 +25,11 @@ const Landing = () => {
             <Link className="btn btn-secondary" to={"/explore"}>
               Explore Videos
             </Link>
-            <Link className="btn btn-primary" to={"/signup"}>
-              Join Now
-            </Link>
+            {!isLoggedIn && (
+              <Link className="btn btn-primary" to={"/signup"}>
+                Join Now
+              </Link>
+            )}
           </div>
         </div>
         <img

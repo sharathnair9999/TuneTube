@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./SingleVideoPage.css";
 import ReactPlayer from "react-player";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
 import { useAuth, useVideos } from "../../contexts";
 import { useDocumentTitle } from "../../custom-hooks";
 import { constants } from "../../app-utils";
@@ -17,6 +17,8 @@ import {
 const SingleVideoPage = () => {
   const navigate = useNavigate();
   const { videoId } = useParams();
+  const mainContainerRef = useRef();
+  const { pathname } = useLocation();
   const { titles } = constants;
   const [expanded, setExpanded] = useState(false);
   const {
@@ -48,6 +50,12 @@ const SingleVideoPage = () => {
   const isInHistory = history.some(
     (historyVideo) => historyVideo._id === currVideo._id
   );
+  const scrollToTop = () => {
+    mainContainerRef.current.scroll(0, 0);
+  };
+  useEffect(() => {
+    scrollToTop();
+  }, [pathname, videoId]);
 
   const handleHistory = () => {
     isLoggedIn &&
@@ -60,7 +68,7 @@ const SingleVideoPage = () => {
   const nextVideos = allVideos.filter((video) => video._id !== currVideo._id);
 
   return (
-    <div className="video-page-container">
+    <div ref={mainContainerRef} className="video-page-container">
       <div className="video-details flex justify-center items-fs flex-col">
         <div className="player-wrapper">
           {isVideoLoading ? (

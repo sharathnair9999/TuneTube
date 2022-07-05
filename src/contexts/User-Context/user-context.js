@@ -302,7 +302,7 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  const deletePlaylist = async (_id) => {
+  const deletePlaylist = async (_id, fromPlaylistRoute, navigate) => {
     try {
       const {
         data: { playlists },
@@ -312,6 +312,9 @@ const AuthProvider = ({ children }) => {
         null,
         userDetails?.encodedToken
       );
+      if (fromPlaylistRoute) {
+        navigate("/playlists", { replace: true });
+      }
       userDispatch({ type: "ALL_PLAYLISTS", payload: playlists });
       toast.success(`Deleted Playlist successfully!`);
     } catch (error) {

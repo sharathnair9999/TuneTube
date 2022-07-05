@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts";
 import { AiFillDelete } from "react-icons/ai";
 import ReactTooltip from "react-tooltip";
 
 const Playlists = ({ playlists }) => {
+  const navigate = useNavigate();
   const { deletePlaylist } = useAuth();
   return (
     <div className="playlists-list flex justify-fs items-fs gap-1 flex-col">
@@ -24,7 +25,7 @@ const Playlists = ({ playlists }) => {
           </section>
           <button
             data-tip="Delete Playlist"
-            onClick={() => deletePlaylist(playlist._id)}
+            onClick={() => deletePlaylist(playlist._id, true, navigate)}
             className="btn-transparent ml-auto my-auto"
           >
             <AiFillDelete color="#dc2626" size={"1.2rem"} />

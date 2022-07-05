@@ -4,7 +4,10 @@ import React from "react";
 import { useVideos } from "../../contexts";
 
 import { Link, useNavigate } from "react-router-dom";
-import VideoActionSection from "../VideoActions/VideoActionSection";
+import HistoryButton from "../VideoActions/HistoryButton";
+import WatchLaterButton from "../VideoActions/WatchLaterButton";
+import PlaylistButton from "../VideoActions/PlaylistButton";
+import Like from "../VideoActions/Like";
 
 const HorizontalCard = ({
   video,
@@ -46,15 +49,16 @@ const HorizontalCard = ({
           <small>{creator}</small>
         </section>
       </div>
-      <VideoActionSection
-        id={_id}
-        video={video}
-        historyCard={historyCard}
-        likeCard={likeCard}
-        watchLaterCard={watchLaterCard}
-        playlistCard={playlistCard}
-        playlistId={playlistId}
-      />
+      {likeCard && <Like video={video} />}
+      {historyCard && <HistoryButton video={video} />}
+      {watchLaterCard && <WatchLaterButton video={video} />}
+      {playlistCard && (
+        <PlaylistButton
+          video={video}
+          playlistCard={playlistCard}
+          playlistId={playlistId}
+        />
+      )}
     </div>
   );
 };
