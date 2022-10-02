@@ -40,7 +40,9 @@ const AuthProvider = ({ children }: AuthProviderTypes) => {
     password: "chandlerbing",
   };
 
-  const userDetails = JSON.parse(localStorage.getItem("userToken") || "") || {
+  const userDetails = JSON.parse(
+    localStorage.getItem("userToken") as string
+  ) || {
     encodedToken: null,
     firstName: null,
     lastName: null,
