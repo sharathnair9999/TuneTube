@@ -39,12 +39,14 @@ const AuthProvider = ({ children }: AuthProviderTypes) => {
     email: "chandlerbing@friends.com",
     password: "chandlerbing",
   };
-
-  const userDetails = JSON.parse(localStorage.getItem("userToken") || "") || {
-    encodedToken: null,
-    firstName: null,
-    lastName: null,
-  };
+  const localDetails = localStorage.getItem("userToken");
+  const userDetails = localDetails
+    ? JSON.parse(localDetails)
+    : {
+        encodedToken: "",
+        firstName: "",
+        lastName: "",
+      };
 
   const loginUser = async (credentials: {}): Promise<void> => {
     try {
