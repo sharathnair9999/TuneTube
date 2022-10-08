@@ -9,9 +9,10 @@ type UserDetailsType = {
   firstName: string;
   lastName: string;
 };
-export const userDetails: UserDetailsType = JSON.parse(
-  localStorage.getItem("userToken") as string
-) || { encodedToken: "", firstName: "", lastName: "" };
+const localDetails = localStorage.getItem("userToken");
+export const userDetails: UserDetailsType = localDetails
+  ? JSON.parse(localDetails)
+  : { encodedToken: "", firstName: "", lastName: "" };
 
 export const initialModalState: ModalStateType = {
   openModal: false,
