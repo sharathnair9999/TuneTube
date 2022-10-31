@@ -1,46 +1,82 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+  <img src="https://res.cloudinary.com/sharath-media-library/image/upload/v1650477413/unbox%20tube/UnboxTube-logos_transparent_nf40e2.png" width="150" title="App Logo">
 
-## Available Scripts
 
-In the project directory, you can run:
+   # [UnboxTube](https://unboxtube.netlify.app/)
+     
+</div>
+ Single place to watch all your favorite tech influencers unboxing, reviewing and testing your favorite gadgets. Completely Responsive Application built using ReactJS.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Stack Used
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React
+- [Nothing UI](https://nothing-ui-library.netlify.app/)- Component Library
+- Javascript
+- CSS
 
-### `npm test`
+#### Built With -
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Context API + useReducer
+- [React Router v6](https://reactrouter.com/docs/en/v6/getting-started/overview)
 
-### `npm run build`
+#### Packages Used - 
+ - [MockBee](https://www.npmjs.com/package/create-mock-backend) - A mock backend for getting mock APIs to build the functional logic of the application
+ - [Axios](https://www.npmjs.com/package/axios) - For making API calls
+ - [React Toastify](https://www.npmjs.com/package/react-toastify)
+ - [React Tooltip](https://www.npmjs.com/package/react-tooltip)
+ - [react-icons](https://react-icons.github.io/react-icons/) - for icons
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### How To Run in Local - 
+Run these commands in your terminal
+ ```
+ git clone https://github.com/sharathnair9999/UnboxTube.git
+ cd ./UnboxTube
+ npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Add `.env` file to the root directory and place a JWT secret key in it like below and save it
+`REACT_APP_JWT_SECRET = <your_secret_code>`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+After that Run in your local with this command. 
 
-### `npm run eject`
+`npm start`
+secret_code can be anything of your choice. 
+And now this application runs in your local machine too. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Features
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Authentication: 
+    - User Signup 
+    - User Login (Email, Password || Test User)
+    - Logout
+    - Protected Routes
+    - Public Routes
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Public Routes
+- Landing Page (Lazy Loading)
+	- Video Categories
+- Video Listing Page
+	- Landing Page
+	- Video Card with Video title, Video Actions(Add to Likes, Watch Later, Playlist)
+	- Single Video Page with Next Videos to watch on Right Side Panel
+	- Login
+	- Signup
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Private Routes
+- Liked Videos Page
+	- Add / Remove Video From Likes
+- Watch Later
+	- Add / Remove Video from/to Watch Later 
+- User History
+	- Add to History
+	-  Remove from History
+	- Enable / Disable History
+- Playlist Management
+	- Create Playlist
+	- Add Video to the playlist
+	- Remove Video from playlist
+	- View a playlist and videos in it. 
+	- Delete Videos from playlist
+	- Delete Playlist
